@@ -3,7 +3,10 @@
 # DOI: 10.1016/0002-1571(81)90105-9
 # Also Implemented in Fortran: https://github.com/Murilodsv/Fortran/blob/master/T_air.f90
 #
-# Notes: Its a truncated function model (day-night) and can be calibrated for different heights.
+# Notes: Its a truncated function model (day-night) and can be calibrated for different heights
+#
+# Suplementary files and examples in: https://github.com/Murilodsv/R-scripts/blob/master/PL_Model.zip
+#
 # Author: Murilo Vianna (Aug-2015)
 
 Tair = function(tmax,tmin,jd,at.hour,lat,a=1.86,b=2.20,c=-0.17)  
