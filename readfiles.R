@@ -15,4 +15,5 @@ colnames(plant) = c("year","doy","das","dap","gdd","dw","reserv","rw","lw","tp",
 #--- Detailed Internodes
 detint_lines = readLines("DetIntePr_SWAP-SAMUCA_PIRA.OUT")       #Read files lines
 detint_numlines = detint_lines[substr(detint_lines,1,1)=="2"]  #Separate only lines starting with "2" - Indicating its a numerical line (year = 2012,2013...)
-detint = read.table(text = detint_numlines)       
+detint = read.table(text = detint_numlines)                   #Read numeric lines as data.frame
+colnames(detint) = c("year","doy","das","dap","diac","itn",paste(rep("itlen",35),1:35),paste(rep("av_itlen",35),1:35),paste(rep("itsuc",35),1:35),paste(rep("av_itsuc",35),1:35),paste(rep("ittdw",35),1:35),paste(rep("av_ittdw",35),1:35))
