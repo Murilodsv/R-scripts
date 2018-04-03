@@ -1,5 +1,5 @@
 #--- Working space
-setwd("C:/Users/PC-600/Dropbox (Farmers Edge)/MuriloVianna/DB/SoilDB/FE_Costumer_Soil_Analysis/formated")
+setwd(wdpath)
 
 #--- Read DB
 dbs = read.csv(file = "Soil_Analysis_DB_template.csv",header = T)
