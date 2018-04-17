@@ -3,6 +3,7 @@
 #--- 0, 5, 15, 30, 60, 100, 200 cm depth
 
 library(dplyr)
+library(utils)
 library(foreign) #Load library for DBF import
 
 #--- Working space soil DB
@@ -56,10 +57,26 @@ utif = unique(dbf_df_zos$tif)
 #--- Read and gather all dbf files and write them in CSVs named as utif only for ZS!
 lapply(utif,wcsv)
 
+
+
 #--- For centroids...
 dbf_sev = lapply(dbf_df_cen$filename,rdbfv1)
 cen_dbf = do.call("rbind", lapply(dbf_sev, as.data.frame))
 write.csv(cen_dbf, file = "centroids.csv", quote = F)
+
+#--- Read centroids when they are already saved into csv file
+isric_cen = read.csv("centroids.csv")
+
+idc = read.table(text = as.character(isric_cen$filename),sep="_",colClasses = "character",fill = T)
+colnames(idc) = c("isricID","pe_id1","pe_id2","pe_id3","pe_id4","zband","clustermethod","dateofzoning")
+isric_cen = data.frame(isric_cen, idc)
+
+#--- Create new ID colum
+isric_cen$shpname = paste(isric_cen$pe_id1,isric_cen$pe_id2,isric_cen$pe_id3,isric_cen$pe_id4, isric_cen$zband,isric_cen$clustermethod,isric_cen$dateofzoning, sep ="_")
+
+#--- Include IDs in isric
+isric_cen = merge(isric_cen,id_fn, by = "shpname")
+
 
 #--- Import csv files
 bldfie = read.csv(file = paste(utif[1],".csv",sep = ""))
@@ -116,17 +133,51 @@ dbs_00_30 = dbs_m[dbs_m$depth_cm=="0-30",]
 dbs_15_30 = dbs_m[dbs_m$depth_cm=="15-30",]
 
 #--- Merge isric_zs with dbs_m as function of (Farm, Field, Subfield, ZoneID)
-dbs_isric_00_15 = merge(isric_zs, dbs_00_15, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-15 cm
-dbs_isric_00_20 = merge(isric_zs, dbs_00_20, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-20 cm
-dbs_isric_00_30 = merge(isric_zs, dbs_00_30, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-30 cm
-dbs_isric_15_30 = merge(isric_zs, dbs_15_30, by = c("Farm_acron","Field","Subfield","ZoneID")) #15-30 cm
+dbs_isric_00_15_zs = merge(isric_zs, dbs_00_15, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-15 cm
+dbs_isric_00_20_zs = merge(isric_zs, dbs_00_20, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-20 cm
+dbs_isric_00_30_zs = merge(isric_zs, dbs_00_30, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-30 cm
+dbs_isric_15_30_zs = merge(isric_zs, dbs_15_30, by = c("Farm_acron","Field","Subfield","ZoneID")) #15-30 cm
+
+#--- Merge isric_cen with dbs_m as function of (Farm, Field, Subfield, ZoneID)
+dbs_isric_00_15_cen = merge(isric_cen, dbs_00_15, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-15 cm
+dbs_isric_00_20_cen = merge(isric_cen, dbs_00_20, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-20 cm
+dbs_isric_00_30_cen = merge(isric_cen, dbs_00_30, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-30 cm
+dbs_isric_15_30_cen = merge(isric_cen, dbs_15_30, by = c("Farm_acron","Field","Subfield","ZoneID")) #15-30 cm
+
+setwd("C:/Murilo/GIS/BRA_Costumers/isric_zs")
+write.csv(dbs_isric_00_15_zs,file = "dbs_isric_00_15_zs.csv")
+write.csv(dbs_isric_00_20_zs,file = "dbs_isric_00_20_zs.csv")
+write.csv(dbs_isric_00_30_zs,file = "dbs_isric_00_30_zs.csv")
+write.csv(dbs_isric_15_30_zs,file = "dbs_isric_15_30_zs.csv")
+
+setwd("C:/Murilo/GIS/BRA_Costumers/isric_cen")
+write.csv(dbs_isric_00_15_cen,file = "dbs_isric_00_15_cen.csv")
+write.csv(dbs_isric_00_20_cen,file = "dbs_isric_00_20_cen.csv")
+write.csv(dbs_isric_00_30_cen,file = "dbs_isric_00_30_cen.csv")
+write.csv(dbs_isric_15_30_cen,file = "dbs_isric_15_30_cen.csv")
+
+
+
+#--- Reading ZS CSV files
+setwd("C:/Murilo/GIS/BRA_Costumers/isric_zs")
+dbs_isric_00_15_zs = read.csv(file = "dbs_isric_00_15_zs.csv")
+dbs_isric_00_20_zs = read.csv(file = "dbs_isric_00_20_zs.csv")
+dbs_isric_00_30_zs = read.csv(file = "dbs_isric_00_30_zs.csv")
+dbs_isric_15_30_zs = read.csv(file = "dbs_isric_15_30_zs.csv")
+
+#--- Reading Centroids CSV files
+setwd("C:/Murilo/GIS/BRA_Costumers/isric_cen")
+dbs_isric_00_15_cen = read.csv(file = "dbs_isric_00_15_cen.csv")
+dbs_isric_00_20_cen = read.csv(file = "dbs_isric_00_20_cen.csv")
+dbs_isric_00_30_cen = read.csv(file = "dbs_isric_00_30_cen.csv")
+dbs_isric_15_30_cen = read.csv(file = "dbs_isric_15_30_cen.csv")
 
 #--- Chart Analysis
 
 v = c("sl1","sl2","sl3","sl4")
 
 #--- Sand
-png("C:/Murilo/GIS/BRA_Costumers/sand_isric.png",
+png("C:/Murilo/GIS/BRA_Costumers/sand_isric_zs.png",
     units="in", 
     width=12, 
     height=12, 
@@ -143,9 +194,8 @@ rsqrt_snd = sapply(v, crt)
 
 dev.off() # end of chart exportation
 
-
 #--- Clay
-png("C:/Murilo/GIS/BRA_Costumers/clay_isric.png",
+png("C:/Murilo/GIS/BRA_Costumers/clay_isric_zs.png",
     units="in", 
     width=12, 
     height=12, 
@@ -162,9 +212,8 @@ rsqrt_cly = sapply(v, crt)
 
 dev.off() # end of chart exportation
 
-
 #--- Silt
-png("C:/Murilo/GIS/BRA_Costumers/silt_isric.png",
+png("C:/Murilo/GIS/BRA_Costumers/silt_isric_zs.png",
     units="in", 
     width=12, 
     height=12, 
@@ -182,16 +231,322 @@ rsqrt_slt = sapply(v, crt)
 dev.off() # end of chart exportation
 
 
+#--- CEC
+png("C:/Murilo/GIS/BRA_Costumers/cec_isric_zs.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Cation_Exchange_Capacity_C.E.C_mmolc.dm.3"
+tifname = "CECSOL"
+xla = "Measured - CEC mmolc/dm3"
+yla = "ISRIC - CEC cmolc/kg"
+rsqrt_cec = sapply(v, crt)
+
+dev.off() # end of chart exportation
+
+
+#--- OC
+png("C:/Murilo/GIS/BRA_Costumers/oc_isric_zs.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Total_Organic_C_g.dm.3"
+tifname = "ORCDRC"
+xla = "Measured - Org C g/dm3"
+yla = "ISRIC - Org C g/kg"
+rsqrt_orc = sapply(v, crt)
+
+dev.off() # end of chart exportation
+
+
+
+#--- pH in Water cannot do because of lack of data only few measured data
+
+#--- Write performance
+rsqrd = rbind(rsqrt_slt,rsqrt_cly,rsqrt_snd,rsqrt_cec,rsqrt_orc)
+write.csv(rsqrd, file = "C:/Murilo/GIS/BRA_Costumers/rsqrd_zs.csv")
+
+
+#--- for centroids
+
+dbs_isric_cen = rbind(dbs_isric_00_15_cen,dbs_isric_00_20_cen,dbs_isric_00_30_cen,dbs_isric_15_30_cen)
+
+
+#--- Clay - Cen
+png("C:/Murilo/GIS/BRA_Costumers/clay_isric_cen.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Clay_g.kg"
+tifname = "CLYPPTM"
+xla = "Measured - Clay frac"
+yla = "ISRIC - Clay frac"
+rsqrt_cly = sapply(v, crt)
+
+dev.off() # end of chart exportation
+
+
+#--- Silt - Cen
+png("C:/Murilo/GIS/BRA_Costumers/silt_isric_cen.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Silt_g.kg"
+tifname = "SLTPPTM"
+xla = "Measured - Silt frac"
+yla = "ISRIC - Silt frac"
+rsqrt_slt = sapply(v, crt)
+
+dev.off() # end of chart exportation
+
+#--- Sand - Cen
+png("C:/Murilo/GIS/BRA_Costumers/sand_isric_cen.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Sand_g.kg"
+tifname = "SNDPPTM"
+xla = "Measured - Sand frac"
+yla = "ISRIC - Sand frac"
+rsqrt_snd = sapply(v, crt)
+
+dev.off() # end of chart exportation
+
+
+#--- cec - Cen
+png("C:/Murilo/GIS/BRA_Costumers/cec_isric_cen.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Cation_Exchange_Capacity_C.E.C_mmolc.dm.3"
+tifname = "CECSOLM"
+xla = "Measured - CEC mmolc/dm3"
+yla = "ISRIC - CEC cmolc/kg"
+rsqrt_cec = sapply(v, crt)
+
+dev.off() # end of chart exportation
+
+#--- ORC - Cen
+png("C:/Murilo/GIS/BRA_Costumers/orc_isric_cen.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Total_Organic_C_g.dm.3"
+tifname = "ORCDRCM"
+xla = "Measured - Org C g/dm3"
+yla = "ISRIC - Org C g/kg"
+rsqrt_orc = sapply(v, crt)
+
+dev.off() # end of chart exportation
+
+#--- Write performance
+rsqrd = rbind(rsqrt_slt,rsqrt_cly,rsqrt_snd,rsqrt_cec,rsqrt_orc)
+write.csv(rsqrd, file = "C:/Murilo/GIS/BRA_Costumers/rsqrd_cen.csv")
+
+
+boxplot(dbs_isric_cen$Clay_g.kg/10,
+        col  = "red",
+        xlab = "Clay Content [%] - ISRIC(250m)",
+        ylab = "Clay Content [%] - ISRIC(250m)",
+        xlim = c(0,2),
+        ylim = c(0,100),
+        cex.lab = 1.5,
+        cex.axis= 1.5,
+        main =NULL)
+
+boxplot(dbs_isric_cen$CLYPPTMsl12,
+        col  = "red",
+        xlab = "Clay Content [%] - ISRIC(250m)",
+        ylab = "Frequency",
+        xlim = c(0,2),
+        ylim = c(0,100),
+        cex.lab = 1.5,
+        cex.axis= 1.5,
+        main =NULL)
+
+
+listisric[25:44]
+
+lisric = listisric[25:44]
+
+t = data.frame(CLYPPTMsl1 = dbs_isric_cen$CLYPPTMsl12,
+               CLYPPTMsl2 = dbs_isric_cen$CLYPPTMsl22,
+               CLYPPTMsl3 = dbs_isric_cen$CLYPPTMsl32,
+               CLYPPTMsl4 = dbs_isric_cen$CLYPPTMsl42,
+               
+               SNDPPTMsl1 = dbs_isric_cen$SNDPPTMsl12,
+               SNDPPTMsl2 = dbs_isric_cen$SNDPPTMsl22,
+               SNDPPTMsl3 = dbs_isric_cen$SNDPPTMsl32,
+               SNDPPTMsl4 = dbs_isric_cen$SNDPPTMsl42,
+               
+               SLTPPTMsl1 = dbs_isric_cen$SLTPPTMsl12,
+               SLTPPTMsl2 = dbs_isric_cen$SLTPPTMsl22,
+               SLTPPTMsl3 = dbs_isric_cen$SLTPPTMsl32,
+               SLTPPTMsl4 = dbs_isric_cen$SLTPPTMsl42,
+               
+               CECSOLMsl1 = dbs_isric_cen$CECSOLMsl12,
+               CECSOLMsl2 = dbs_isric_cen$CECSOLMsl22,
+               CECSOLMsl3 = dbs_isric_cen$CECSOLMsl32,
+               CECSOLMsl4 = dbs_isric_cen$CECSOLMsl42,
+               
+               ORCDRCMsl1 = dbs_isric_cen$ORCDRCMsl12,
+               ORCDRCMsl2 = dbs_isric_cen$ORCDRCMsl22,
+               ORCDRCMsl3 = dbs_isric_cen$ORCDRCMsl32,
+               ORCDRCMsl4 = dbs_isric_cen$ORCDRCMsl42,
+               
+               MEACLAY    = dbs_isric_cen$Clay_g.kg/10,
+               MEASILT    = dbs_isric_cen$Silt_g.kg/10,
+               MEASAND    = dbs_isric_cen$Sand_g.kg/10,
+               MEACECS    = dbs_isric_cen$Cation_Exchange_Capacity_C.E.C_mmolc.dm.3,
+               MEAORCD    = dbs_isric_cen$Total_Organic_C_g.dm.3
+               )
+
+dbs_is_st = stack(t)
+lt = unique(dbs_is_st$ind)
+
+write.csv(lt, file = "lt.csv")
+lt_r = read.csv(file = "lt.csv")
+
+dbs_is_bp = merge(dbs_is_st, lt_r, by = "ind")
+
+
+
+
+
+dbsis_filt = dbs_is_bp[dbs_is_bp$Cl=="Clay",]
+dbsis_filt$ind = factor(dbsis_filt$ind)
+
+#--- Clay - Cen
+png("C:/Murilo/GIS/BRA_Costumers/bp_clay.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+boxplot(dbsis_filt$values~dbsis_filt$ind,
+        col  = "red",
+        xlab = NULL,
+        ylab = "Clay [%]",
+        xlim = c(0.5,5.5),
+        ylim = c(0,100),
+        cex.lab = 1.0,
+        cex.axis= 1.0,
+        main =NULL)
+
+dev.off() # end of chart exportation
+
+
+dbsis_filt = dbs_is_bp[dbs_is_bp$Cl=="Sand",]
+dbsis_filt$ind = factor(dbsis_filt$ind)
+
+#--- Clay - Cen
+png("C:/Murilo/GIS/BRA_Costumers/bp_sand.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+boxplot(dbsis_filt$values~dbsis_filt$ind,
+        col  = "yellow",
+        xlab = NULL,
+        ylab = "Sand [%]",
+        xlim = c(0.5,5.5),
+        ylim = c(0,100),
+        cex.lab = 1.0,
+        cex.axis= 1.0,
+        main =NULL)
+
+dev.off() # end of chart exportation
+
+
+dbsis_filt = dbs_is_bp[dbs_is_bp$Cl=="Silt",]
+dbsis_filt$ind = factor(dbsis_filt$ind)
+
+#--- Clay - Cen
+png("C:/Murilo/GIS/BRA_Costumers/bp_silt.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+boxplot(dbsis_filt$values~dbsis_filt$ind,
+        col  = "grey",
+        xlab = NULL,
+        ylab = "Silt [%]",
+        xlim = c(0.5,5.5),
+        ylim = c(0,50),
+        cex.lab = 1.0,
+        cex.axis= 1.0,
+        main =NULL)
+
+dev.off() # end of chart exportation
+
+
+
+
+
+
+
+
+
 #--- Plot Function
 crt = function(sl){
-y = dbs_isric_00_15$zs_mean[dbs_isric_00_15$tif==  tifname & 
-                              dbs_isric_00_15$sl==sl]
-x = dbs_isric_00_15[dbs_isric_00_15$tif==tifname & 
-                              dbs_isric_00_15$sl==sl, cname]/10
-
-yl = paste(yla,"(",sl,")",sep="")
-xl = paste(xla,"(",sl,")",sep="")
-
+  #y = dbs_isric_00_15_zs$zs_mean[dbs_isric_00_15_zs$tif==  tifname & 
+  #                                 dbs_isric_00_15_zs$sl==sl]
+  #x = dbs_isric_00_15_zs[dbs_isric_00_15_zs$tif==tifname & 
+  #                         dbs_isric_00_15_zs$sl==sl, cname]/10
+  
+  y = dbs_isric_cen[,paste(tifname,sl,"2",sep="")]
+  x = dbs_isric_cen[,cname]
+  
+  
+  yl = paste(yla,"(",sl,")",sep="")
+  xl = paste(xla,sep="")
+  
 curvplot(y,x,yl,xl)
 
 }
@@ -210,7 +565,8 @@ curvplot = function(y,x,yl,xl){
   fit3 = lm(y~poly(x,3,raw=TRUE))
   fit4 = lm(y~poly(x,4,raw=TRUE))
   
-  xx = seq(min(x),max(x),length = (max-min)*1000)
+  #xx = seq(min(x),max(x),length = (max-min)*1000)
+  xx = seq(0,100,length = 1000)
   lines(xx, predict(fit1, data.frame(x=xx)),col="red")
   #lines(xx, predict(fit2, data.frame(x=xx)),col="green")
   #lines(xx, predict(fit3, data.frame(x=xx)),col="blue")
@@ -218,21 +574,19 @@ curvplot = function(y,x,yl,xl){
   
   legend("topleft", bty="n", legend=paste("R2: ", format(summary(fit1)$adj.r.squared, digits=4)))
   
-  rsqrd = 0
-  rsqrd[1] = summary(fit1)$adj.r.squared
+  perf = data.frame(r2 = 0, rmse = 0, descr = "")
+  perf$r2 = summary(fit1)$adj.r.squared
+  perf$rmse = sqrt(sum((y-x)^2) / length(y))
+  perf$descr= paste(yl, " vs ",xl, sep ="")
+  perf
+  
   #rsqrd[2] = summary(fit2)$adj.r.squared
   #rsqrd[3] = summary(fit3)$adj.r.squared
   #rsqrd[4] = summary(fit4)$adj.r.squared
   
-  
 }
 
 
-
-
-write.table(isric_zs        ,file = "C:/Murilo/isric_zs.csv"        ,sep = ",")
-write.table(dbs_00_15       ,file = "C:/Murilo/dbs_00_15.csv"       ,sep = ",")
-write.table(dbs_isric_00_15 ,file = "C:/Murilo/dbs_isric_00_15.csv" ,sep = ",")
 
 #--- Charts
 par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
@@ -384,6 +738,7 @@ filt = function(x){
   x = x[!(x$pe_id2=="Rodeio" & x$pe_id3=="Subfield2976547"),]  # Remove subfield from Rodeio due to field "ZONE"
   x = x[!(x$pe_id2==""),]  # T01 02 03 04...
 }
+
 
 
 
