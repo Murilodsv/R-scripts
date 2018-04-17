@@ -116,34 +116,121 @@ dbs_isric_00_20 = merge(isric_zs, dbs_00_20, by = c("Farm_acron","Field","Subfie
 dbs_isric_00_30 = merge(isric_zs, dbs_00_30, by = c("Farm_acron","Field","Subfield","ZoneID")) #00-30 cm
 dbs_isric_15_30 = merge(isric_zs, dbs_15_30, by = c("Farm_acron","Field","Subfield","ZoneID")) #15-30 cm
 
-x = dbs_isric_00_15$Clay_g.kg[dbs_isric_00_15$tif=="CLYPPT"]
-y = dbs_isric_00_15$zs_mean[dbs_isric_00_15$tif=="CLYPPT"]
+#--- Chart Analysis
+
+v = c("sl1","sl2","sl3","sl4")
+
+#--- Sand
+png("C:/Murilo/GIS/BRA_Costumers/sand_isric.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Sand_g.kg"
+tifname = "SNDPPT"
+xla = "Measured - Sand fraction"
+yla = "ISRIC - Sand fraction"
+rsqrt_snd = sapply(v, crt)
+
+dev.off() # end of chart exportation
 
 
-plot(dbs_isric_00_15$zs_mean[dbs_isric_00_15$tif=="CLYPPT"]~dbs_isric_00_15$Clay_g.kg[dbs_isric_00_15$tif=="CLYPPT"])
-plot(dbs_isric_00_20$zs_mean[dbs_isric_00_20$tif=="CLYPPT"]~dbs_isric_00_20$Clay_g.kg[dbs_isric_00_20$tif=="CLYPPT"])
-plot(dbs_isric_00_30$zs_mean[dbs_isric_00_30$tif=="CLYPPT"]~dbs_isric_00_30$Clay_g.kg[dbs_isric_00_30$tif=="CLYPPT"])
-plot(dbs_isric_15_30$zs_mean[dbs_isric_15_30$tif=="CLYPPT"]~dbs_isric_15_30$Clay_g.kg[dbs_isric_15_30$tif=="CLYPPT"])
+#--- Clay
+png("C:/Murilo/GIS/BRA_Costumers/clay_isric.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
 
-curvplot(dbs_isric_15_30$zs_mean[dbs_isric_15_30$tif=="CLYPPT"],dbs_isric_15_30$Clay_g.kg[dbs_isric_15_30$tif=="CLYPPT"])
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
 
-fit = lm(y~x)
-xx = seq(0,800,length = 1000)
-lines(xx, predict(fit, data.frame(x=xx)),col="red")
+cname = "Clay_g.kg"
+tifname = "CLYPPT"
+xla = "Measured - Clay fraction"
+yla = "ISRIC - Clay fraction"
+rsqrt_cly = sapply(v, crt)
 
-curvplot = function(y,x){
-  plot(y~x)
-  fit = lm(y~x)
-  xx = seq(0,800,length = 1000)
-  lines(xx, predict(fit, data.frame(x=xx)),col="red")
+dev.off() # end of chart exportation
+
+
+#--- Silt
+png("C:/Murilo/GIS/BRA_Costumers/silt_isric.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+cname = "Silt_g.kg"
+tifname = "SLTPPT"
+xla = "Measured - Silt fraction"
+yla = "ISRIC - Silt fraction"
+rsqrt_slt = sapply(v, crt)
+
+dev.off() # end of chart exportation
+
+
+#--- Plot Function
+crt = function(sl){
+y = dbs_isric_00_15$zs_mean[dbs_isric_00_15$tif==  tifname & 
+                              dbs_isric_00_15$sl==sl]
+x = dbs_isric_00_15[dbs_isric_00_15$tif==tifname & 
+                              dbs_isric_00_15$sl==sl, cname]/10
+
+yl = paste(yla,"(",sl,")",sep="")
+xl = paste(xla,"(",sl,")",sep="")
+
+curvplot(y,x,yl,xl)
+
 }
+
+curvplot = function(y,x,yl,xl){
+  
+  plot(y~x,
+       xlab = xl,
+       ylab = yl,
+       cex.lab = 1.0,
+       cex.axis= 1.0,
+       main =NULL)
+  
+  fit1 = lm(y~x)
+  fit2 = lm(y~poly(x,2,raw=TRUE))
+  fit3 = lm(y~poly(x,3,raw=TRUE))
+  fit4 = lm(y~poly(x,4,raw=TRUE))
+  
+  xx = seq(min(x),max(x),length = (max-min)*1000)
+  lines(xx, predict(fit1, data.frame(x=xx)),col="red")
+  #lines(xx, predict(fit2, data.frame(x=xx)),col="green")
+  #lines(xx, predict(fit3, data.frame(x=xx)),col="blue")
+  #lines(xx, predict(fit4, data.frame(x=xx)),col="purple")
+  
+  legend("topleft", bty="n", legend=paste("R2: ", format(summary(fit1)$adj.r.squared, digits=4)))
+  
+  rsqrd = 0
+  rsqrd[1] = summary(fit1)$adj.r.squared
+  #rsqrd[2] = summary(fit2)$adj.r.squared
+  #rsqrd[3] = summary(fit3)$adj.r.squared
+  #rsqrd[4] = summary(fit4)$adj.r.squared
+  
+  
+}
+
+
+
 
 write.table(isric_zs        ,file = "C:/Murilo/isric_zs.csv"        ,sep = ",")
 write.table(dbs_00_15       ,file = "C:/Murilo/dbs_00_15.csv"       ,sep = ",")
 write.table(dbs_isric_00_15 ,file = "C:/Murilo/dbs_isric_00_15.csv" ,sep = ",")
 
 #--- Charts
-par(mfrow=c(2,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
 
 
 h = hist(isric_zs$zs_mean[isric_zs$tif==utif[3]])
@@ -262,6 +349,8 @@ filt = function(x){
   x = x[!(x$pe_id2=="Rodeio" & x$pe_id3=="Subfield2976547"),]  # Remove subfield from Rodeio due to field "ZONE"
   x = x[!(x$pe_id2==""),]  # T01 02 03 04...
 }
+
+
 
 
 
