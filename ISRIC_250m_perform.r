@@ -14,13 +14,13 @@ dbs = read.csv(file = "Soil_Analysis_DB_template.csv",header = T)
 #--- Working space DBF files
 
 #--- Centroids
-setwd("C:/Users/PC-600/Dropbox (Farmers Edge)/MuriloVianna/DB/SoilDB/ISRIC/ISRIC_250m/costumers/centroids")
+setwd("C:/Murilo/GIS/BRA_Costumers/isric_cen")
 
 #--- DBF file list centroids
 dbf_list = dir(pattern = "*.dbf")
 dbf_df   = read.table(text = dbf_list,sep="_",colClasses = "character",fill = T)
-dbf_df$V1= NULL #Remove the "NA" col
-colnames(dbf_df) = c("pe_id2","pe_id3","pe_id4","zband","clustermethod","dateofzoning")
+#dbf_df$V1= NULL #Remove the "NA" col
+colnames(dbf_df) = c("isricID","pe_id1","pe_id2","pe_id3","pe_id4","zband","clustermethod","dateofzoning")
 #colnames(dbf_df) = c("tif","m","sl","res","pe_id1","pe_id2","pe_id3","pe_id4","zband","clustermethod","dateofzoning")
 dbf_df$filename = dbf_list
 dbf_df_cen = dbf_df
@@ -53,8 +53,13 @@ dbf_df_zos = dbf_df_zos[!(dbf_df_zos$pe_id2==""),]  # T01 02 03 04...
 #--- Unique names by tif type
 utif = unique(dbf_df_zos$tif)
 
-#--- Read and gather all dbf files and write them in CSVs named as utif
+#--- Read and gather all dbf files and write them in CSVs named as utif only for ZS!
 lapply(utif,wcsv)
+
+#--- For centroids...
+dbf_sev = lapply(dbf_df_cen$filename,rdbfv1)
+cen_dbf = do.call("rbind", lapply(dbf_sev, as.data.frame))
+write.csv(cen_dbf, file = "centroids.csv", quote = F)
 
 #--- Import csv files
 bldfie = read.csv(file = paste(utif[1],".csv",sep = ""))
@@ -296,12 +301,31 @@ wcsv = function(y){
   write.csv(dbf, file = paste(y,".csv",sep=""), quote = F)
 }
 
+
+#--- Gather dbf files and write as .csv
+wcsvv1 = function(y){
+  dbf_ls = dbf_df_zos$filename[dbf_df_zos$tif==y]
+  dbf    = rdbfsevv1(dbf_ls)
+  write.csv(dbf, file = paste(y,".csv",sep=""), quote = F)
+}
+
+
 #--- Function Read Several dbf
 rdbfsev = function(z){
   dbf_files_df = lapply(z,rdbf)
   rdbfsev = do.call("rbind", lapply(dbf_files_df, as.data.frame))
   rdbfsev
 }
+
+
+
+rdbfsevv1 = function(z){
+  dbf_files_df = lapply(z,rdbfv1)
+  rdbfsev = do.call("rbind", lapply(dbf_files_df, as.data.frame))
+  rdbfsev
+}
+
+
 
 #--- Read DBF function
 rdbf = function(x) {
@@ -334,6 +358,15 @@ rdbf = function(x) {
 }
 
 
+#--- Read DBF function
+rdbfv1 = function(x) {
+  f = read.dbf(file = x, as.is = F)
+  f$filename = x
+  f$ACRON = NULL #Remove this additional field (added on Qgis only for layout)
+  f
+}
+
+
 ttc = function(df) {
   #Text to colum (filename column)
   ttc_fn = read.table(text = as.character(df$filename),sep="_",colClasses = "character",fill = T)
@@ -343,12 +376,18 @@ ttc = function(df) {
 
 
 
+
+
 filt = function(x){
   x = x[!(x$pe_id3=="Horta964917"),]   # Remove Horta from Santa Ernestina
   x = x[!(x$pe_id2=="SaoFrancisco"),]  # Remove Sao Francisco (out of .tif bounds)
   x = x[!(x$pe_id2=="Rodeio" & x$pe_id3=="Subfield2976547"),]  # Remove subfield from Rodeio due to field "ZONE"
   x = x[!(x$pe_id2==""),]  # T01 02 03 04...
 }
+
+
+
+
 
 
 
