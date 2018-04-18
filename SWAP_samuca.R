@@ -3,8 +3,10 @@
 #--- 1) Read and build-up charts of SWAP-Samuca model for assessment and calibration
 #--- 2) Be used as function to automate calibration procedure as described in my Murilo Vianna phd Thesis (2017) 
 
+library(lubridate) #--- compute doy from date
+
 #--- Outputs Directory
-setwd("C:/Murilo/Nova pasta/SWAP_Sugarcanev1")
+setwd("C:/Murilo/SWAP_Sugarcanev1")
 
 #--- Read Outputs
 #--- Crop Default
@@ -62,3 +64,27 @@ colnames(indexc) = c("das","dat")
 #--- Include das in all db
 fdr$dat = paste(fdr$year,fdr$doy,sep = "_")
 fdr$das = merge(fdr,indexc,by = 'dat')$das
+
+et$dat  = paste(et$ANO, et$DJ, sep = "_")
+et$das  = merge(et, indexc, by = 'dat')$das
+
+bio$year= format(as.Date(bio$DATE, format="%m/%d/%Y"),"%Y")
+bio$dat = paste(bio$year, bio$DOY, sep = "_")
+bio$das = merge(bio, indexc, by = 'dat')$das
+
+atm$year = as.factor(format(as.Date(atm$Date, format="%d-%b-%Y"),"%Y"))
+atm$doy  = as.factor(yday(as.Date(atm$Date, format="%d-%b-%Y")))
+atm$dat  = as.factor(paste(atm$year, atm$doy, sep = "_"))
+atm$das  = merge(atm, indexc, by = 'dat',all = T)$das
+atm$das[1:62] = seq(1,62)
+
+swba$year = as.factor(format(as.Date(swba$date, format="%d-%b-%Y"),"%Y"))
+swba$doy  = as.factor(yday(as.Date(swba$date, format="%d-%b-%Y")))
+swba$dat  = as.factor(paste(swba$year, swba$doy, sep = "_"))
+swba$das  = merge(swba, atm, by = 'dat',all = T)$das
+swba      = na.omit(swba)
+
+wstr$year = as.factor(format(as.Date(wstr$Date, format="%d-%b-%Y"),"%Y"))
+wstr$doy  = as.factor(yday(as.Date(wstr$Date, format="%d-%b-%Y")))
+wstr$dat  = as.factor(paste(wstr$year, wstr$doy, sep = "_"))
+wstr$das  = merge(wstr, atm, by = 'dat',all = T)$das
