@@ -4,6 +4,7 @@
 #--- 2) Be used as function to automate calibration procedure as described in my Murilo Vianna phd Thesis (2017) 
 
 library(lubridate) #--- compute doy from date
+library(plyr)
 
 #--- Outputs Directory
 setwd("C:/Murilo/SWAP_Sugarcanev1")
@@ -39,6 +40,10 @@ detroot_numlines = detroot_lines[substr(detroot_lines,1,1)=="2"]  #Separate only
 detroot = read.table(text = detroot_numlines)                     #Read numeric lines as data.frame
 colnames(detroot) = c("year","doy","das","dap","diac","wr","rd","rootsene",paste(rep("rld",45),1:45),"tqropot","ptra")
 
+#--- Model Parameters
+par = read.table(file = "Param_Set.out",skip = 4)
+colnames(par) = c("value","parname","type","class")
+
 #--- Soil Water
 swba = read.csv(file = "result.vap", skip = 11)
 
@@ -53,40 +58,67 @@ fdr = read.csv(file = "SOIL_FDR_SP_DATA.csv")
 et  = read.csv(file = "bowen.csv")
 bio = read.csv(file = "biometrics.csv")
 
-#--- Model Parameters
-par = read.table(file = "Param_Set.out",skip = 4)
-colnames(par) = c("value","parname","type","class")
-
 #--- Indexer: use year_doy as indexer for das from plant
-indexc = data.frame(plant$das, paste(plant$year,plant$doy,sep="_"))
-colnames(indexc) = c("das","dat")
+indexc = data.frame(plant$das,plant$year,plant$doy)
+colnames(indexc) = c("das","year","doy")
+
+#--- Function to index das on other DBs
+inx = function(df){
+  df = merge(indexc,df,by = c("year","doy"))
+  df = df[order(df$das),]#--- sort by das
+}
 
 #--- Include das in all db
-fdr$dat = paste(fdr$year,fdr$doy,sep = "_")
-fdr$das = merge(fdr,indexc,by = 'dat')$das
+#--- Note data must have "year" and "doy" collumns!!!!!!!
+#--- Measured data
+fdr = inx(fdr)    #FDR
+et  = inx(et)     #ET
+bio = inx(bio)    #Biometrics
 
-et$dat  = paste(et$ANO, et$DJ, sep = "_")
-et$das  = merge(et, indexc, by = 'dat')$das
-
-bio$year= format(as.Date(bio$DATE, format="%m/%d/%Y"),"%Y")
-bio$dat = paste(bio$year, bio$DOY, sep = "_")
-bio$das = merge(bio, indexc, by = 'dat')$das
-
+#--- Simulated data
+#--- Derive "year" and "doy" for atm, swba, wstr
 atm$year = as.factor(format(as.Date(atm$Date, format="%d-%b-%Y"),"%Y"))
 atm$doy  = as.factor(yday(as.Date(atm$Date, format="%d-%b-%Y")))
-atm$dat  = as.factor(paste(atm$year, atm$doy, sep = "_"))
-atm$das  = merge(atm, indexc, by = 'dat',all = T)$das
-atm$das[1:62] = seq(1,62)
 
 swba$year = as.factor(format(as.Date(swba$date, format="%d-%b-%Y"),"%Y"))
 swba$doy  = as.factor(yday(as.Date(swba$date, format="%d-%b-%Y")))
-swba$dat  = as.factor(paste(swba$year, swba$doy, sep = "_"))
-swba$das  = merge(swba, atm, by = 'dat',all = T)$das
-swba      = na.omit(swba)
 
 wstr$year = as.factor(format(as.Date(wstr$Date, format="%d-%b-%Y"),"%Y"))
 wstr$doy  = as.factor(yday(as.Date(wstr$Date, format="%d-%b-%Y")))
-wstr$dat  = as.factor(paste(wstr$year, wstr$doy, sep = "_"))
-wstr$das  = merge(wstr, atm, by = 'dat',all = T)$das
 
-#mmerging not working properly...unsorting dates
+#--- Include das in all them
+atm = inx(atm)    #Atmosphere
+swba= inx(swba)   #Soil Water Balance
+wstr= inx(wstr)   #Water stresses
+
+#------------------------#
+#-------- Charts --------#
+#--- FDR vs Simulated ---#
+#------------------------#
+
+#--- seting the simulated depths as equal to FDR depths measurements (10, 20, 30, 60)
+dsim = data.frame(fdr = colnames(fdr)[4:7], depth = c(-10,-19.5,-31.5,-58.5))
+
+#--- Separating data for lines
+l = merge(swba,dsim,by = "depth")
+l = l[order(l$das),]#--- sort by das
+
+par(mfrow=c(4,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+sapply(colnames(fdr)[4:7], fdrpl)
+fdrpl = function(x){
+  
+  plot(fdr[,x]~fdr$das,
+       col  = "black",
+       xlab = "",
+       ylab = "SWC (cm3 cm-3)",
+       xlim = c(50,1500),
+       ylim = c(0.15,0.45),
+       cex.lab = 1.,
+       cex.axis= 1.,
+       main =NULL)
+  
+  lines(l$wcontent[l$fdr==x]~l$das[l$fdr==x], col = "grey")
+  
+}
+
