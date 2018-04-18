@@ -88,3 +88,5 @@ wstr$year = as.factor(format(as.Date(wstr$Date, format="%d-%b-%Y"),"%Y"))
 wstr$doy  = as.factor(yday(as.Date(wstr$Date, format="%d-%b-%Y")))
 wstr$dat  = as.factor(paste(wstr$year, wstr$doy, sep = "_"))
 wstr$das  = merge(wstr, atm, by = 'dat',all = T)$das
+
+#mmerging not working properly...unsorting dates
