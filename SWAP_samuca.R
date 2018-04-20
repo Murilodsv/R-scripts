@@ -5,6 +5,7 @@
 
 library(lubridate) #--- compute doy from date
 library(plyr)
+library(scales)
 
 #--- Outputs Directory
 setwd("C:/Murilo/SWAP_Sugarcanev1")
@@ -96,7 +97,72 @@ wstr      = inx(wstr)   #Water stresses
 #------------------------#
 
 #--- Compute statistical indexes of performance
+#--- Performance function
+mperf = function(sim,obs,vnam){
+  
+  # sim  - simulated values [R]
+  # obs  - observed values [R]
+  # vnam - Name of variable as string for chart axis  [S]
+  
+  #--- Statistical indexes
+  fit   = lm(sim~obs)
+  bias  = (1/length(obs)) * sum(sim-obs)
+  mse   = (1/length(obs)) * sum((sim-obs)^2)
+  rmse  = sqrt(mse)
+  mae   = (1/length(obs)) * sum(abs(sim-obs))
+  rrmse = rmse / mean(obs)
+  rmae  = (1/length(obs)) * sum(abs(sim-obs)/abs(obs))
+  ef    = 1 - (sum((sim-obs)^2) / sum((obs-mean(obs))^2))
+  r     = sum((obs-mean(obs))*(sim-mean(sim)))/sqrt(sum((obs-mean(obs))^2)*sum((sim-mean(sim))^2))
+  r2    = r^2
+  d     = 1 - (sum((sim-obs)^2) / sum((abs(sim-mean(obs))+abs(obs-mean(obs)))^2))
+  a     = summary(fit)$coefficients["(Intercept)","Estimate"]
+  b     = summary(fit)$coefficients["obs","Estimate"]
+  
+  #--- Chart Sim ~ Obs
+  varlab = vnam 
+  
+  mindt = min(obs,sim)
+  maxdt = max(obs,sim)
+  #--- Ploting limits 
+  pllim = c(mindt-0.1*(maxdt-mindt),maxdt+0.1*(maxdt-mindt))
+  xx = seq(min(obs),max(obs),length = (max(obs)-min(obs))*1000)
+  z = summary(fit)
+  
+  plot(sim~obs,
+       ylab = paste("Sim - ",varlab,sep = ""),
+       xlab = paste("Obs - ",varlab,sep = ""),
+       ylim = pllim,
+       xlim = pllim)
+  
+  lines(xx, predict(fit, data.frame(obs=xx)),
+        col = "black",
+        lty = 1,
+        lwd = 1.5)
+  
+  l11 = seq(pllim[1]-0.5*(maxdt-mindt), pllim[2] + 0.5 * (maxdt-mindt),length = 1000)
+  
+  lines(l11*1~l11,
+        col = "red",
+        lty = 2,
+        lwd = 1.5)
+  
+  perf = data.frame(bias,
+                    mse,
+                    rmse,
+                    mae,
+                    rrmse,
+                    rmae,
+                    ef,
+                    r,
+                    r2,
+                    d,
+                    a,
+                    b)
+  
+}
 
+#--- Soil Water Content
 #--- seting the simulated depths as equal to FDR depths measurements (10, 20, 30, 60)
 dsim = data.frame(fdr = colnames(fdr)[4:7], depth = c(-10,-19.5,-28.5,-58.5))
 l = merge(swba,dsim,by = "depth")
@@ -123,82 +189,26 @@ o_swc60  = so_fdr$fdr60cm
 s_swc = c(s_swc10,s_swc20,s_swc30,s_swc60)
 o_swc = c(o_swc10,o_swc20,o_swc30,o_swc60)
 
-
-vl = "SWC (cm3 cm-3)"
+par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_swc10  = mperf(s_swc10,o_swc10,"SWC at 10cm (cm3 cm-3)")
+p_swc20  = mperf(s_swc20,o_swc20,"SWC at 20cm (cm3 cm-3)")
+p_swc30  = mperf(s_swc30,o_swc30,"SWC at 30cm (cm3 cm-3)")
+p_swc60  = mperf(s_swc60,o_swc60,"SWC at 60cm (cm3 cm-3)")
 
 par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_swc    = mperf(s_swc,o_swc,"SWC (cm3 cm-3)")
 
 
-p_swc10  = mperf(s_swc10,o_swc10,vl)
-p_swc20  = mperf(s_swc20,o_swc20,vl)
-p_swc30  = mperf(s_swc30,o_swc30,vl)
-p_swc60  = mperf(s_swc60,o_swc60,vl)
-p_swc    = mperf(s_swc,o_swc,vl)
+#--- Atmosphere
+et_obs = data.frame(das = et$das[et$type=="ET" & et$treat=="WithoutStraw"], et = et$et[et$type=="ET" & et$treat=="WithoutStraw"])
+so_atm = merge(et_obs,atm,by = "das")
+s_et = (so_atm$Tact + so_atm$Eact) * 10
+o_et = so_atm$et
 
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_atm  = mperf(s_et,o_et,"ET (mm d-1)")
 
-mperf = function(sim,obs,vnam){
-
-  # sim  - simulated values [R]
-  # obs  - observed values [R]
-  # vnam - Name of variable as string for chart axis  [S]
-  
-#--- Statistical indexes
-fit   = lm(sim~obs)
-bias  = (1/length(obs)) * sum(sim-obs)
-mse   = (1/length(obs)) * sum((sim-obs)^2)
-rmse  = sqrt(mse)
-mae   = (1/length(obs)) * sum(abs(sim-obs))
-rrmse = rmse / mean(obs)
-rmae  = (1/length(obs)) * sum(abs(sim-obs)/abs(obs))
-ef    = 1 - (sum((sim-obs)^2) / sum((obs-mean(obs))^2))
-r     = sum((obs-mean(obs))*(sim-mean(sim)))/sqrt(sum((obs-mean(obs))^2)*sum((sim-mean(sim))^2))
-r2    = r^2
-d     = 1 - (sum((sim-obs)^2) / sum((abs(sim-mean(obs))+abs(obs-mean(obs)))^2))
-a     = summary(fit)$coefficients["(Intercept)","Estimate"]
-b     = summary(fit)$coefficients["obs","Estimate"]
-
-#--- Chart Sim ~ Obs
-varlab = vnam 
-
-mindt = min(obs,sim)
-maxdt = max(obs,sim)
-#--- Ploting limits 
-pllim = c(mindt-0.1*(maxdt-mindt),maxdt+0.1*(maxdt-mindt))
-xx = seq(min(obs),max(obs),length = (max(obs)-min(obs)))
-z = summary(fit)
-
-plot(sim~obs,
-     ylab = paste("Sim - ",varlab,sep = ""),
-     xlab = paste("Obs - ",varlab,sep = ""),
-     ylim = pllim,
-     xlim = pllim)
-
-lines(xx, predict(fit, data.frame(obs=xx)),
-      col = "black",
-      lty = 1,
-      lwd = 1.5)
-
-l11 = seq(pllim[1]-0.5*pllim[1], pllim[2] + 0.5 * pllim[2],length = 1000)
-
-lines(l11*1~l11,
-      col = "red",
-      lty = 2,
-      lwd = 1.5)
-
-perf = data.frame(bias,
-                  mse,
-                  rmse,
-                  mae,
-                  rrmse,
-                  rmae,
-                  ef,
-                  r,
-                  r2,
-                  d,
-                  a,
-                  b)
-
-}
+#--- Biometrics 
 
 
 #------------------------#
@@ -214,8 +224,6 @@ l = merge(swba,dsim,by = "depth")
 l = l[order(l$das),]#--- sort by das
 
 par(mfrow=c(4,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
-
-sapply(colnames(fdr)[4:7], fdrpl)
 fdrpl = function(x){
   
   plot(fdr[,x]~fdr$das,
@@ -231,4 +239,66 @@ fdrpl = function(x){
   lines(l$wcontent[l$fdr==x]~l$das[l$fdr==x], col = "grey")
   
 }
+sapply(colnames(fdr)[4:7], fdrpl)
+
+#--- Atmosphere
+atm$etact = (atm$Tact + atm$Eact) * 10
+atm$etpot = (atm$Tpot + atm$Epot) * 10
+
+#--- temporal distribution
+dt = 30 #time pack 
+
+#--- classify das by dt
+br = seq(min(atm$das),max(atm$das), by = dt)
+lb = seq(min(atm$das) + 0.5*dt ,max(atm$das), by = dt)
+if(length(br)==length(lb)){lb = lb[1:length(br)-1]}
+
+atm$das_c = cut(atm$das,breaks = br, labels = lb, right = F)
+
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+#--- compute 1st and 3 quartiles
+z = boxplot(atm$etact~atm$das_c)
+bot = data.frame(das = lb, et = z$stats[2,])
+top = data.frame(das = lb, et = z$stats[4,])
+
+#--- plot obs et
+plot(et$et[et$type == "ET" & et$treat == "WithoutStraw"]~et$das[et$type == "ET" & et$treat == "WithoutStraw"],
+     ylab = expression("ET (mm " ~ d^{-1} ~ ")"),
+     xlab = "DAS",
+     ylim = c(0,10),
+     xlim = c(min(atm$das), max(atm$das)) )
+
+#--- plot sim et
+lines(atm$etact~atm$das, col=alpha(rgb(1,0,0), 0.7))
+
+#--- plot temporal distribution
+lines(bot$et~bot$das,
+      lty = 2,
+      lwd = 1.5)
+lines(top$et~top$das,
+      lty = 2,
+      lwd = 1.5)
+points(et$et[et$type == "ET" & et$treat == "WithoutStraw"]~et$das[et$type == "ET" & et$treat == "WithoutStraw"])
+
+#--- Add days of planting
+pdays = plant$das[plant$dap==1]
+
+#plant cane
+lines(c(-1,11)~c(pdays[1],pdays[1]),
+      col=alpha(rgb(0,0,0), 0.5),
+      lty= 2)
+
+#1st ratoon
+lines(c(-1,11)~c(pdays[2],pdays[2]),
+      col=alpha(rgb(0,0,0), 0.5),
+      lty= 2)
+#2nd ratoon
+lines(c(-1,11)~c(pdays[3],pdays[3]),
+      col=alpha(rgb(0,0,0), 0.5),
+      lty= 2)
+#3rd ratoon
+lines(c(-1,11)~c(pdays[4],pdays[4]),
+      col=alpha(rgb(0,0,0), 0.5),
+      lty= 2)
 
