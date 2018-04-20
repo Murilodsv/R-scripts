@@ -111,7 +111,7 @@ mperf = function(sim,obs,vnam){
   rmse  = sqrt(mse)
   mae   = (1/length(obs)) * sum(abs(sim-obs))
   rrmse = rmse / mean(obs)
-  rmae  = (1/length(obs)) * sum(abs(sim-obs)/abs(obs))
+  rmae  = (1/length(obs[obs>0])) * sum(abs(sim[obs>0]-obs[obs>0])/abs(obs[obs>0]))
   ef    = 1 - (sum((sim-obs)^2) / sum((obs-mean(obs))^2))
   r     = sum((obs-mean(obs))*(sim-mean(sim)))/sqrt(sum((obs-mean(obs))^2)*sum((sim-mean(sim))^2))
   r2    = r^2
@@ -189,15 +189,31 @@ o_swc60  = so_fdr$fdr60cm
 s_swc = c(s_swc10,s_swc20,s_swc30,s_swc60)
 o_swc = c(o_swc10,o_swc20,o_swc30,o_swc60)
 
+png("p_swc_d.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
 par(mfrow=c(2,2), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
 p_swc10  = mperf(s_swc10,o_swc10,"SWC at 10cm (cm3 cm-3)")
 p_swc20  = mperf(s_swc20,o_swc20,"SWC at 20cm (cm3 cm-3)")
 p_swc30  = mperf(s_swc30,o_swc30,"SWC at 30cm (cm3 cm-3)")
 p_swc60  = mperf(s_swc60,o_swc60,"SWC at 60cm (cm3 cm-3)")
 
+dev.off() # end of chart exportation
+
+png("p_swc.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
 par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
 p_swc    = mperf(s_swc,o_swc,"SWC (cm3 cm-3)")
-
+dev.off() # end of chart exportation
 
 #--- Atmosphere
 et_obs = data.frame(das = et$das[et$type=="ET" & et$treat=="WithoutStraw"], et = et$et[et$type=="ET" & et$treat=="WithoutStraw"])
@@ -205,11 +221,18 @@ so_atm = merge(et_obs,atm,by = "das")
 s_et = (so_atm$Tact + so_atm$Eact) * 10
 o_et = so_atm$et
 
+png("p_atm.png",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=15, 
+    res=300)
+
 par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
 p_atm  = mperf(s_et,o_et,"ET (mm d-1)")
+dev.off() # end of chart exportation
 
 #--- Biometrics
-
 #Stalk Fresh Mass
 colnames(bio)
 
@@ -230,16 +253,72 @@ so_pol  = merge(o_pol,plant[,c("das","pol")]  , by = "das")
 so_dgl  = merge(o_dgl,plant[,c("das","devgl")], by = "das")
 so_sth  = merge(o_sth,plant[,c("das","h")]    , by = "das")
 
-par(mfrow=c(2,3), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+png("p_sfm.png",units="in",width=12,height=12,pointsize=15,res=300)
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_sfm = mperf(so_sfm$tch,o_sfm$SFM, "SFM (t ha-1)")
+dev.off() # end of chart exportation
 
-mperf(so_sfm$tch,o_sfm$SFM, "SFM (t ha-1)")
-mperf(so_sdm$sw,o_sdm$SDM, "SDM (t ha-1)")
-mperf(so_lai$lai,o_lai$LAIGD, "LAI (m2 m-2)")
-mperf(so_til$till,o_til$T.AD, "Tiller (till m-2)")
-mperf(so_pol$pol,o_pol$SU.FMD, "POL (%)")
-mperf(so_dgl$devgl,o_dgl$N.GL, "N° dev GL per stalk")
-mperf(so_sth$h,o_sth$SHTD, "Height (m)")
+png("p_sdm.png",units="in",width=12,height=12,pointsize=15,res=300)
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_sdm = mperf(so_sdm$sw,o_sdm$SDM, "SDM (t ha-1)")
+dev.off() # end of chart exportation
 
+png("p_lai.png",units="in",width=12,height=12,pointsize=15,res=300)
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_lai = mperf(so_lai$lai,o_lai$LAIGD, "LAI (m2 m-2)")
+dev.off() # end of chart exportation
+
+png("p_till.png",units="in",width=12,height=12,pointsize=15,res=300)
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_til = mperf(so_til$till,o_til$T.AD, "Tiller (till m-2)")
+dev.off() # end of chart exportation
+
+png("p_pol.png",units="in",width=12,height=12,pointsize=15,res=300)
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_pol = mperf(so_pol$pol,o_pol$SU.FMD, "POL (%)")
+dev.off() # end of chart exportation
+
+png("p_dgl.png",units="in",width=12,height=12,pointsize=15,res=300)
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_dgl = mperf(so_dgl$devgl,o_dgl$N.GL, "N° dev GL per stalk")
+dev.off() # end of chart exportation
+
+png("p_sth.png",units="in",width=12,height=12,pointsize=15,res=300)
+par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+p_sth = mperf(so_sth$h,o_sth$SHTD, "Height (m)")
+dev.off() # end of chart exportation
+
+#--- Pooling all results in p_all
+p_all = rbind(p_swc10,
+              p_swc20,
+              p_swc30,
+              p_swc60,
+              p_swc,
+              p_atm,
+              p_sfm,
+              p_sdm,
+              p_lai,
+              p_til,
+              p_pol,
+              p_dgl,
+              p_sth)
+
+p_all$model = c("p_swc10",
+                "p_swc20",
+                "p_swc30",
+                "p_swc60",
+                "p_swc",
+                "p_atm",
+                "p_sfm",
+                "p_sdm",
+                "p_lai",
+                "p_til",
+                "p_pol",
+                "p_dgl",
+                "p_sth")
+
+#--- Write performance
+write.csv(p_all, file = "Model_performance.csv")
 
 #------------------------#
 #-------- Charts --------#
@@ -253,7 +332,6 @@ dsim = data.frame(fdr = colnames(fdr)[4:7], depth = c(-10,-19.5,-28.5,-58.5))
 l = merge(swba,dsim,by = "depth")
 l = l[order(l$das),]#--- sort by das
 
-par(mfrow=c(4,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
 fdrpl = function(x){
   
   plot(fdr[,x]~fdr$das,
@@ -269,7 +347,11 @@ fdrpl = function(x){
   lines(l$wcontent[l$fdr==x]~l$das[l$fdr==x], col = "grey")
   
 }
-sapply(colnames(fdr)[4:7], fdrpl)
+png("so_swc.png",units="in",width=12,height=12,pointsize=15,res=300)
+par(mfrow=c(4,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+s = sapply(colnames(fdr)[4:7], fdrpl)
+dev.off() # end of chart exportation
+
 
 #--- Atmosphere
 atm$etact = (atm$Tact + atm$Eact) * 10
@@ -285,6 +367,7 @@ if(length(br)==length(lb)){lb = lb[1:length(br)-1]}
 
 atm$das_c = cut(atm$das,breaks = br, labels = lb, right = F)
 
+png("so_atm.png",units="in",width=12,height=12,pointsize=15,res=300)
 par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
 
 #--- compute 1st and 3 quartiles
@@ -332,6 +415,7 @@ lines(c(-1,11)~c(pdays[4],pdays[4]),
       col=alpha(rgb(0,0,0), 0.5),
       lty= 2)
 
+dev.off()
 #--- Biometrics
 
 #--- Observed data (only average = "AVG") - Include boxplots in a nearfuture
@@ -376,6 +460,8 @@ pl_bio = function(obs,sim,yl,dxlab){
 
 # C(bottom, left, top, right)
 
+png("so_bio.png",units="in",width=12,height=12,pointsize=15,res=300)
+
 par(mfrow=c(7,1), 
     mar = c(0., 0.5, 0., 0.5), 
     oma = c(3, 3, 0.5, 0),
@@ -416,5 +502,6 @@ pl_bio(data.frame(das = o_dgl[,"das"],dat = o_dgl[,o_bio[6]]),
 pl_bio(data.frame(das = o_sth[,"das"],dat = o_sth[,o_bio[7]]),
        data.frame(das = plant[,"das"],dat = plant[,s_bio[7]] , ctype = plant[,"ctype"]),
        "Height (m)",TRUE)
+dev.off()
 
 
