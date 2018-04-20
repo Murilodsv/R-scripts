@@ -208,7 +208,37 @@ o_et = so_atm$et
 par(mfrow=c(1,1), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
 p_atm  = mperf(s_et,o_et,"ET (mm d-1)")
 
-#--- Biometrics 
+#--- Biometrics
+
+#Stalk Fresh Mass
+colnames(bio)
+
+o_sfm  = bio[!is.na(bio$SFM) & bio$type == "AVG",c("das","SFM")]
+o_sdm  = bio[!is.na(bio$SDM) & bio$type == "AVG",c("das","SDM")]
+o_lai  = bio[!is.na(bio$LAIGD) & bio$type == "AVG",c("das","LAIGD")]
+o_til  = bio[!is.na(bio$T.AD) & bio$type == "AVG",c("das","T.AD")]
+o_pol  = bio[!is.na(bio$SU.FMD) & bio$type == "AVG",c("das","SU.FMD")]
+o_dgl  = bio[!is.na(bio$N.GL) & bio$type == "AVG",c("das","N.GL")]
+o_sth  = bio[!is.na(bio$SHTD) & bio$type == "AVG",c("das","SHTD")]
+
+
+so_sfm  = merge(o_sfm,plant[,c("das","tch")]  , by = "das")
+so_sdm  = merge(o_sdm,plant[,c("das","sw")]   , by = "das")
+so_lai  = merge(o_lai,plant[,c("das","lai")]  , by = "das")
+so_til  = merge(o_til,plant[,c("das","till")] , by = "das")
+so_pol  = merge(o_pol,plant[,c("das","pol")]  , by = "das")
+so_dgl  = merge(o_dgl,plant[,c("das","devgl")], by = "das")
+so_sth  = merge(o_sth,plant[,c("das","h")]    , by = "das")
+
+par(mfrow=c(2,3), mar = c(4.5, 4.5, 0.5, 0.5), oma = c(0, 0, 0, 0))
+
+mperf(so_sfm$tch,o_sfm$SFM, "SFM (t ha-1)")
+mperf(so_sdm$sw,o_sdm$SDM, "SDM (t ha-1)")
+mperf(so_lai$lai,o_lai$LAIGD, "LAI (m2 m-2)")
+mperf(so_til$till,o_til$T.AD, "Tiller (till m-2)")
+mperf(so_pol$pol,o_pol$SU.FMD, "POL (%)")
+mperf(so_dgl$devgl,o_dgl$N.GL, "N° dev GL per stalk")
+mperf(so_sth$h,o_sth$SHTD, "Height (m)")
 
 
 #------------------------#
@@ -301,4 +331,90 @@ lines(c(-1,11)~c(pdays[3],pdays[3]),
 lines(c(-1,11)~c(pdays[4],pdays[4]),
       col=alpha(rgb(0,0,0), 0.5),
       lty= 2)
+
+#--- Biometrics
+
+#--- Observed data (only average = "AVG") - Include boxplots in a nearfuture
+o_sfm  = bio[!is.na(bio$SFM)    & bio$type == "AVG",c("das","SFM")]
+o_sdm  = bio[!is.na(bio$SDM)    & bio$type == "AVG",c("das","SDM")]
+o_lai  = bio[!is.na(bio$LAIGD)  & bio$type == "AVG",c("das","LAIGD")]
+o_til  = bio[!is.na(bio$T.AD)   & bio$type == "AVG",c("das","T.AD")]
+o_pol  = bio[!is.na(bio$SU.FMD) & bio$type == "AVG",c("das","SU.FMD")]
+o_dgl  = bio[!is.na(bio$N.GL)   & bio$type == "AVG",c("das","N.GL")]
+o_sth  = bio[!is.na(bio$SHTD)   & bio$type == "AVG",c("das","SHTD")]
+
+o_bio  = c("SFM","SDM","LAIGD","T.AD","SU.FMD","N.GL" ,"SHTD")
+s_bio  = c("tch","sw" ,"lai"  ,"till","pol"   ,"devgl","h")
+
+pl_bio = function(obs,sim,yl,dxlab){
+  
+  pylim = c(min(sim$dat,obs$dat),max(sim$dat,obs$dat)*1.04)
+  pxlim = c(min(sim$das,obs$das),max(sim$das,obs$das))
+  
+  if(dxlab){
+  
+  plot(obs$dat~obs$das,
+       ylab = yl,
+       xlab = "DAS",
+       ylim = pylim,
+       xlim = pxlim,
+       yaxs="i")
+  }else{
+    
+    plot(obs$dat~obs$das,
+         ylab = yl,
+         xlab = "",
+         ylim = pylim,
+         xlim = pxlim,
+         yaxs="i",
+         xaxt='n')
+  }
+  
+  li = sapply(unique(sim$ctype), function(x) lines(sim$dat[sim$ctype==x]~sim$das[sim$ctype==x]))
+
+  }
+
+# C(bottom, left, top, right)
+
+par(mfrow=c(7,1), 
+    mar = c(0., 0.5, 0., 0.5), 
+    oma = c(3, 3, 0.5, 0),
+    mgp = c(2, 1, 0),
+    xpd = NA)
+
+#--- ploting SFM
+pl_bio(data.frame(das = o_sfm[,"das"],dat = o_sfm[,o_bio[1]]),
+       data.frame(das = plant[,"das"],dat = plant[,s_bio[1]] , ctype = plant[,"ctype"]),
+       "SFM (t ha-1)",FALSE)
+
+#--- ploting SDM
+pl_bio(data.frame(das = o_sdm[,"das"],dat = o_sdm[,o_bio[2]]),
+       data.frame(das = plant[,"das"],dat = plant[,s_bio[2]] , ctype = plant[,"ctype"]),
+       "SDM (t ha-1)",FALSE)
+
+#--- ploting LAI
+pl_bio(data.frame(das = o_lai[,"das"],dat = o_lai[,o_bio[3]]),
+       data.frame(das = plant[,"das"],dat = plant[,s_bio[3]] , ctype = plant[,"ctype"]),
+       "LAI (m2 m-2)",FALSE)
+
+#--- ploting Tillering
+pl_bio(data.frame(das = o_til[,"das"],dat = o_til[,o_bio[4]]),
+       data.frame(das = plant[,"das"],dat = plant[,s_bio[4]] , ctype = plant[,"ctype"]),
+       "Tiller (n° m-2)",FALSE)
+
+#--- ploting POL
+pl_bio(data.frame(das = o_pol[,"das"],dat = o_pol[,o_bio[5]]),
+       data.frame(das = plant[,"das"],dat = plant[,s_bio[5]] , ctype = plant[,"ctype"]),
+       "POL (%)",FALSE)
+
+#--- ploting dgl
+pl_bio(data.frame(das = o_dgl[,"das"],dat = o_dgl[,o_bio[6]]),
+       data.frame(das = plant[,"das"],dat = plant[,s_bio[6]] , ctype = plant[,"ctype"]),
+       "n° DGL",FALSE)
+
+#--- ploting heigth
+pl_bio(data.frame(das = o_sth[,"das"],dat = o_sth[,o_bio[7]]),
+       data.frame(das = plant[,"das"],dat = plant[,s_bio[7]] , ctype = plant[,"ctype"]),
+       "Height (m)",TRUE)
+
 
