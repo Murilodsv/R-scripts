@@ -1,6 +1,6 @@
 #--- Create multiple soil profiles based on a soil template (MV_Template.SOL) and scenarios (scenarios.csv)
-#--- sensitivity analysis
 
+#--- Load Libraries 
 library(scales)
 library(plyr)
 library(data.table)
@@ -10,40 +10,68 @@ wd       = "C:/DSSAT47/Sugarcane" #simulated data WD
 setwd(wd)
 
 #--- read sensitivy scenarios
+#------ Must be a data frame with: 
+#------ scenario: Scenario ID
+#------ var:      Variable name (e.g. SALB, SDUL...)
+#------ id:       Soil ID to be saved on DSSAT format (e.g. MVPI102502)
+#------ val:      Corresponding value for soil variable
+#------ pos:      The position of value (pd or ld1, ld2, ld3)
+#------ pd stands for profile data: "SCOM","SALB","SLU1","SLDR","SLRO","SLNF","SLPF","SMHB","SMPX","SMKE"
+#------ ld stands for layer data: "SLB","SLMH","SLLL","SDUL","SSAT","SRGF","SSKS","SBDM","SLOC","SLCL","SLSI","SLCF","SLNI","SLHW","SLHB","SCEC","SADC"
+
 scen = read.csv("C:/Users/PC-600/Dropbox (Farmers Edge)/MuriloVianna/Modeling/DSSAT_CANEGRO/Sensitivity/Soil/scenarios.csv")
 
-#--- reading soil profile
+#--- reading master soil profile
 sol     = readLines("C:/DSSAT47/Soil/MV_Template.sol")
 
+#--- Parameters setup
+rsol_ID   = 3                 #
+rsol_pd   = 7                 #
+rsol_ld   = c(9,12)           #
+rmsol_ID  = 14                #
+rmsol_pd  = 18                #
+rmsol_ld  = c(20,23)          #
+len       = length(scen$var)    # number of scenarios
+
+#--- Header for .sol file
+hsolfile  = "*Soils: Murilo Vianna (MV) sensitivity test based on Piracicaba, SP. Brazil"
+
+#--- Output file.sol
+outsol = "C:/DSSAT47/Soil/MV.SOL"
+
 #--- Reference soil profile
-sol_ID  = sol[3]
-sol_pd  = read.table(text = sol[7])
+sol_ID  = sol[rsol_ID]
+sol_pd  = read.table(text = sol[rsol_pd])
 colnames(sol_pd) = c("SCOM","SALB","SLU1","SLDR","SLRO","SLNF","SLPF","SMHB","SMPX","SMKE")
 sol_pd$ID = substr(sol_ID,2,11)
 
-sol_ld  = read.table(text = sol[9:12])
+sol_ld  = read.table(text = sol[rsol_ld[1]:rsol_ld[2]])
 colnames(sol_ld) = c("SLB","SLMH","SLLL","SDUL","SSAT","SRGF","SSKS","SBDM","SLOC","SLCL","SLSI","SLCF","SLNI","SLHW","SLHB","SCEC","SADC")
 sol_ld$ID = substr(sol_ID,2,11)
 
-#transpose
+#--- Transpose (data.table lib)
 sol_pd_t = data.frame(varname = colnames(sol_pd),value_bl = transpose(sol_pd)$V1)
 sol_ld_t = data.frame(varname = colnames(sol_ld),transpose(sol_ld))
-colnames(sol_ld_t)[2:5] = c("SL1","SL2","SL3","SL4")
+for(sl in 2:length(colnames(sol_ld_t))){
+colnames(sol_ld_t)[sl] = paste("SL",sl-1, sep = "")
+}
 
-#--- Master soil prof
-msol_ID  = sol[14]
-msol_pd  = read.table(text = sol[18])
+#--- Master soil profile
+msol_ID  = sol[rmsol_ID]
+msol_pd  = read.table(text = sol[rmsol_pd])
 colnames(msol_pd) = c("SCOM","SALB","SLU1","SLDR","SLRO","SLNF","SLPF","SMHB","SMPX","SMKE")
 msol_pd$ID = substr(msol_ID,2,3)
 
-msol_ld  = read.table(text = sol[20:23])
+msol_ld  = read.table(text = sol[rmsol_ld[1]:rmsol_ld[2]])
 colnames(msol_ld) = c("SLB","SLMH","SLLL","SDUL","SSAT","SRGF","SSKS","SBDM","SLOC","SLCL","SLSI","SLCF","SLNI","SLHW","SLHB","SCEC","SADC")
 msol_ld$ID = substr(msol_ID,2,3)
 
-#transpose
+#--- Transpose (data.table lib)
 msol_pd_t = data.frame(varname = colnames(msol_pd),value_mp = transpose(msol_pd)$V1)
 msol_ld_t = data.frame(varname = colnames(msol_ld),transpose(msol_ld))
-colnames(msol_ld_t)[2:5] = c("SL1","SL2","SL3","SL4")
+for(sl in 2:length(colnames(msol_ld_t))){
+  colnames(msol_ld_t)[sl] = paste("SL",sl-1, sep = "")
+}
 
 #--- Function to write as ascii
 repfunc = function(rep_ns_df,replaced){
@@ -121,38 +149,43 @@ for(i in 1:(length(rep_ns_df$val)-1)){
   replaced
 }
 
-len     = length(scen$var)  # number of scenarios
-nlayers = 4                 # Number of soil layers
-pmsol   = 18                # line of master profile whereas profile data is
-lmsol   = 20                # line of master profile whereas starts soil layers
+nlayers = rmsol_ld[2] - rmsol_ld[1] + 1   # Number of soil layers
 
-new_tot_sol = "*Soils: Murilo Vianna (MV) sensitivity test based on Piracicaba, SP. Brazil"
+#--- File header
+new_tot_sol = hsolfile
 
+#--- Start of interactions (n = len)
 for(sc in 1:len){
 
 s = scen$scenario[sc]  
-  
+
+#--- Profile head and info
 new_sol = gsub(c("ID"),scen$id[sc],msol_ID)
 new_sol = gsub(c("SCEN"),scen$scenario[sc],new_sol)
 new_sol = rbind(" ",new_sol)
-new_sol = rbind(new_sol,sol[4])
-new_sol = rbind(new_sol,sol[5])
-new_sol = rbind(new_sol,sol[6])
+new_sol = rbind(new_sol,sol[rsol_ID+1])
+new_sol = rbind(new_sol,sol[rsol_ID+2])
+new_sol = rbind(new_sol,sol[rsol_ID+3])
 
+#--- Set up new values to be replaced from scenarios.csv
 nsol_pd = sol_pd
+
+#--- If this scenarios will change pd, chage it. Otherwise keep same values as the reference soil profile
 if(scen$pos[sc] == "pd"){nsol_pd[,as.character(scen$var[sc])] = scen$val[sc]}
 nsol_pd_t = data.frame(varname = colnames(nsol_pd),value_np = transpose(nsol_pd)$V1)
 
+#--- create input df for repfunc()
 rep_nsol_pd = data.frame(ser = as.character(msol_pd_t$value_mp), val = as.character(nsol_pd_t$value_np),stringsAsFactors = F)
 rep_nsol_pd$digits = c(0,2,1,2,1,2,2,0,0,0,0)
 rep_nsol_pd$type   = c("C","R","R","R","R","R","R","C","C","C","ID")
 
-replaced = repfunc(rep_nsol_pd,sol[pmsol])
+#--- Replace and write new values
+replaced = repfunc(rep_nsol_pd,sol[rmsol_pd])
 
 new_sol = rbind(new_sol,replaced)
-new_sol = rbind(new_sol,sol[8])
+new_sol = rbind(new_sol,sol[rsol_ID+5])
 
-
+#--- For each layer do the same procedure
 for(sl in 1:nlayers){
   
 nsol_ld = sol_ld[sl,]
@@ -166,14 +199,16 @@ rep_nsol_ld = data.frame(ser = as.character(msol_ld_t[,paste("SL",sl,sep="")]), 
 rep_nsol_ld$digits = c(0,0,3,3,3,3,2,2,2,1,1,1,3,1,0,1,0,0)
 rep_nsol_ld$type   = c("R","C","R","R","R","R","R","R","R","R","R","R","R","R","R","R","R","C")
 
-replaced = repfunc(rep_nsol_ld,sol[lmsol+sl-1])
+replaced = repfunc(rep_nsol_ld,sol[rmsol_ld[1]+sl-1])
 new_sol = rbind(new_sol,replaced)
 
 }
 
+#--- add this soil profile to .SOL file body
 new_tot_sol = rbind(new_tot_sol,new_sol)
 
 }
 
+#--- save .SOL file
+write.table(new_tot_sol,file = outsol,row.names = F,col.names = F,quote = F)
 
-write.table(new_tot_sol,file = "C:/DSSAT47/Soil/MV.SOL",row.names = F,col.names = F,quote = F)
