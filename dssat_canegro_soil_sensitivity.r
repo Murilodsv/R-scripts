@@ -25,13 +25,13 @@ scen = read.csv("C:/Users/PC-600/Dropbox (Farmers Edge)/MuriloVianna/Modeling/DS
 sol     = readLines("C:/DSSAT47/Soil/MV_Template.sol")
 
 #--- Parameters setup
-rsol_ID   = 3                 #
-rsol_pd   = 7                 #
-rsol_ld   = c(9,12)           #
-rmsol_ID  = 14                #
-rmsol_pd  = 18                #
-rmsol_ld  = c(20,23)          #
-len       = length(scen$var)    # number of scenarios
+rsol_ID   = 3                 # Row number of reference profile where soil ID is (e.g. *MVPI102502)
+rsol_pd   = 7                 # Row number of reference profile where soil pd data is 
+rsol_ld   = c(9,12)           # Start and end row number whereas layers data are within in the reference profile
+rmsol_ID  = 14                # Row number of master profile where soil ID is (e.g. *ID)
+rmsol_pd  = 18                # Row number of master profile where soil pd data is
+rmsol_ld  = c(20,23)          # Start and end row number whereas layers data are within in the master profile
+len       = length(scen$var)  # number of scenarios
 
 #--- Header for .sol file
 hsolfile  = "*Soils: Murilo Vianna (MV) sensitivity test based on Piracicaba, SP. Brazil"
