@@ -1,0 +1,12 @@
+$BATCH(SUGARCANE)
+!
+! Directory    : C:\DSSAT47\SUGARCANE
+! Command Line : C:\DSSAT47\DSCSM047.EXE SCCAN047 B DSSBatch.v47
+! Crop         : Sugarcane       
+! Experiment   : MAST0001.SCX
+! ExpNo        : 1
+! Debug        : C:\DSSAT47\DSCSM047.EXE SCCAN047 " B DSSBatch.v47"
+!
+@FILEX                                                                                        TRTNO     RP     SQ     OP     CO
+C:\DSSAT47\SUGARCANE\&SCX_NAME                                                                 1      1      0      1      0
+
