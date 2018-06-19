@@ -1,0 +1,5 @@
+$BATCH(SUGARCANE)
+!
+@FILEX                                                                                        TRTNO     RP     SQ     OP     CO
+C:\DSSAT47\SUGARCANE\<calib_xfile>                                                                 1      1      0      1      0
+

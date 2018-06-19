@@ -1,0 +1,4 @@
+!SUGARCANE CALIBRATION (ECOTYPE FILE.ECO)
+!MURILO VIANNA (JUN-2018)
+@ECO#  ECO-NAME.........        DELTTMAX       SWDF2AMP     CS_CNREDUC    CS_CNPERIOD        Tthalfa         dPERdT         EXTCFN        EXTCFST       LFNMXEXT  AREAMX_CF(1)   AREAMX_CF(2)   AREAMX_CF(3)         WIDCOR     WMAX_CF(1)     WMAX_CF(2)     WMAX_CF(3)       POPCF(1)       POPCF(2)   POPDECAY        TTBASEEM     TTBASELFEX      TTBASEPOP      TBASEPER     LG_AMRANGE    LG_GP_REDUC   LDG_FI_REDUC     LMAX_CF(1)     LMAX_CF(2)     LMAX_CF(3)    MAXLFLENGTH     MAXLFWIDTH
+CL0001 CALIB(BRAZIL1)     <p1> <p2> <p3> <p4> <p5> <p6> <p7> <p8> <p9> <p10> <p11> <p12> <p13> <p14> <p15> <p16> <p17> <p18> <p19> <p20> <p21> <p22> <p23> <p24> <p25> <p26> <p27> <p28> <p29> <p30> <p31>
