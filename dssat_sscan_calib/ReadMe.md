@@ -22,3 +22,7 @@ It uses the general purpose optimization function "optim()" embedded in R enviro
 - SCCAN047_M.ECO;
 
 3) Open dssat_sccan_calib.R and follow the comented instructions
+
+# Example:
+The script runs for a cultivar database placed in ~\db\ (Place corresponding .WTH and file.SCX in DSSAT folders to run)
+
