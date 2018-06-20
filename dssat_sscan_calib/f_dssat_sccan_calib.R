@@ -220,21 +220,6 @@ dssat_sccan_calib = function(svalue){
       if(length(dev.list())>0){dev.off()}
     }
     
-    #--- save to png file
-    
-    if(savepng){
-    png(paste(wd,"/optimization_",calib_id,".png",sep=""),
-          units="in", 
-          width=24, 
-          height=12, 
-          pointsize=24, 
-          res=300)
-    plot(it_after$obj~it_after$n, type = "l",ylab = outidx,xlab = "Number of iterations", ylim = c(0,max(it_after$obj)))
-    lines(c(min(it_after$obj),min(it_after$obj))~c(-1000,max(it_after$n)*1000), lty = 3,col = "red")
-    
-    dev.off()
-    
-    }
     #--- plot on screen
     plot(it_after$obj~it_after$n, type = "l",ylab = outidx,xlab = "Number of iterations", ylim = c(0,max(it_after$obj)))
     lines(c(min(it_after$obj),min(it_after$obj))~c(-1000,max(it_after$n)*1000), lty = 3,col = "red")
