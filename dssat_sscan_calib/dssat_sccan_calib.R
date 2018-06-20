@@ -15,7 +15,13 @@ parnm     = "SCCAN047"
 obs_raw   = read.csv(paste(wd,"/gogo_field_data.csv",sep=""))
 pgro_head = read.csv(paste(wd,"/PlantGro_Head.csv",sep=""))
 pdssat    = F
-savepng   = F # save to png file? (can cause to slow down time performance)
+savepng   = T # save optimization dev to png file?
+
+#--- optimization
+#--- Relative convergence tolerance
+op_reltol = 1e-5
+
+#--- more options can be set for other methds (see ?optim)
 
 #--- load functions
 source(paste(wd,"/f_dssat_sccan_calib.R",sep=""))
@@ -100,7 +106,7 @@ for(cv in l_cv){
 for(i in 1:nopt){
   
   #--- Optimize (using default - Nelder_Mead)
-  optim(svalue,dssat_sccan_calib)
+  optim(svalue,dssat_sccan_calib,control = list(reltol = op_reltol))
   
   #--- restart iniial conditions (try to fall on global minimum)
   new_val = rnorm(1000,0.5,0.25)
@@ -127,6 +133,22 @@ for(i in 1:nopt){
   #--- write optimization parameters
   opt_par = read.csv(paste(wd,"/optim_dev.csv",sep=""))
   write.csv(opt_par,file = paste(wd,"/optim_dev_",cv,".csv",sep=""),row.names = F)
+  
+  #--- save to png file
+  if(savepng){
+    png(paste(wd,"/optimization_",calib_id,".png",sep=""),
+        units="in", 
+        width=24, 
+        height=12, 
+        pointsize=24, 
+        res=300)
+    plot(opt_par$obj~opt_par$n, type = "l",ylab = outidx,xlab = "Number of iterations", ylim = c(0,max(opt_par$obj)))
+    lines(c(min(opt_par$obj),min(opt_par$obj))~c(-1000,max(opt_par$n)*1000), lty = 3,col = "red")
+    
+    dev.off()
+    
+  }
+  
   
   #--- Best set of parameters
   svalue_df =  opt_par[opt_par$obj==min(opt_par$obj[opt_par$inbounds]),as.character(calib$Par_orig[calib$Calibrate])]
