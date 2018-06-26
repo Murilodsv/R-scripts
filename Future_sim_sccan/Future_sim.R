@@ -18,7 +18,7 @@ xfile_bm      = "FUWE0004.SCX"
 ds_v          = 47
 crop          = "Sugarcane"
 
-today_dap     = 200
+today_dap     = 150
 wth_orig      = "SPPI"
 wth_nm        = "PIFW"
 wth_bm        = "PIBM" #--- best match (solomon)
@@ -186,7 +186,7 @@ plot(plantgro_cy[plantgro_cy$dap<=today_dap,sc_out]~plantgro_cy$dap[plantgro_cy$
 
 #--- plot predictions (past series data~dap)
 
-for(run in unique(plant_series$run)){
+for(run in unique(plantgro_s$run)){
   
   lines(plantgro_s[plantgro_s$run==run & plantgro_s$dap>today_dap,sc_out]~
           plantgro_s$dap[plantgro_s$run==run & plantgro_s$dap>today_dap],
@@ -356,7 +356,7 @@ rsim = 0
 v_run = rep(0,length(month_wth$month[month_wth$year<planting_year]))
 v_mon = rep(0,length(month_wth$month[month_wth$year<planting_year]))
 
-for(m in 1:length(month_rain$month)){
+for(m in 1:length(month_wth$month)){
   
   if(m >= as.numeric(starting_month)){
     if(m == as.numeric(starting_month)){rsim = 1}
@@ -392,7 +392,7 @@ for(run in unique(v_run[v_run>0])){
   
   perf_data_df = obs
   perf_data_df = merge(perf_data_df,month_wth[month_wth$v_run==run,], by = "mrun")
-  if(run ==unique(v_run)[1]){
+  if(run ==unique(v_run[v_run>0])[1]){
     perf_wth = mperf(perf_data_df$rain.y, perf_data_df$rain.x,run,F,"rmse")
   }else{
     perf_wth = rbind(perf_wth,mperf(perf_data_df$rain.y, perf_data_df$rain.x,run,F,"rmse"))
@@ -483,5 +483,8 @@ colnames(plant_bm) = pgro_head$R_head
 
 lines(plant_bm[plant_bm$dap>today_dap,sc_out]~
         plant_bm[plant_bm$dap>today_dap,"dap"],col = "green")
+
+
+
 
 
