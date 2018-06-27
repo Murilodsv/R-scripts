@@ -18,7 +18,7 @@ setwd(wd)
 wd_sdin   = "C:/Users/PC-600/Dropbox (Farmers Edge)/MuriloVianna/SVS/Primavera_do_leste/Sensor Data/In-Field-Stations/In-Field-Station-Zone#/Sensors Reading Data/WX400244"
 wd_sdedge = "C:/Users/PC-600/Dropbox (Farmers Edge)/MuriloVianna/SVS/Primavera_do_leste/Sensor Data/Edge-of-Field/Sensors Data/WX400243"
 
-wd_sd = wd_sdedge
+wd_sd = wd_sdin
 
 #--- list of sensor data files
 l_sd = dir(wd_sd, pattern = "SD",recursive = T)
@@ -149,5 +149,26 @@ for(v in l_data){
 dev.off()
 
 write.csv(ag_sdata_daily, file = paste(s_nm,"_daily_data.csv",sep=""), row.names = F)
+
+YYDOY = function(dat){
+  
+  year = format(as.Date(dat), "%Y")
+  doy  = as.Date(dat) - as.Date(paste(year,"-01-01",sep="")) + 1
+  
+  #--- Re-build DSSAT DATE format (YYDOY)
+  return (paste(substr(year,3,4),sprintf("%003.0f",doy),sep = ""))
+}
+
+l_swc = l_data[substr(l_data,1,3)=="VWC"]
+swc = ag_sdata_daily[,c("date",l_swc)]
+for(s in l_swc) {
+  swc_ly      = (swc[,c("date",s)])
+  swc_ly      = swc_ly[!is.na(swc_ly[,s]) & swc_ly[,s] > 0,]
+  swc_ly[,s]  = sprintf("%5.2f",round(swc_ly[,s],digits = 2))
+  swc_ly$YYDOY= YYDOY(swc_ly$date)
+  write.table(swc_ly, file = paste(s,"_daily_swc.txt",sep=""), row.names = F, quote = F)
+}
+
+
 
 
