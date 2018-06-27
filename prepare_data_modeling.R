@@ -161,14 +161,46 @@ YYDOY = function(dat){
 
 l_swc = l_data[substr(l_data,1,3)=="VWC"]
 swc = ag_sdata_daily[,c("date",l_swc)]
+swc[,l_swc] = swc[,l_swc] / 100  
+
 for(s in l_swc) {
   swc_ly      = (swc[,c("date",s)])
   swc_ly      = swc_ly[!is.na(swc_ly[,s]) & swc_ly[,s] > 0,]
-  swc_ly[,s]  = sprintf("%5.2f",round(swc_ly[,s],digits = 2))
-  swc_ly$YYDOY= YYDOY(swc_ly$date)
+  swc_ly[,s]  = sprintf("%5.3f",round(swc_ly[,s],digits = 3))
+  swc_dat     = as.Date(swc_ly$date) 
+  swc_ly$YYDOY= YYDOY(swc_dat)
+  
+  if(s == l_swc[1]){
+    u_swc = as.Date(swc_dat)
+  }else{
+    u_swc = c(u_swc,swc_dat)  
+    }
+  
   write.table(swc_ly, file = paste(s,"_daily_swc.txt",sep=""), row.names = F, quote = F)
 }
 
+for(s in l_swc){
+  swc[is.na(swc[,s]) | swc[,s] < 0,s] = NA
+  swc[,s] = round(swc[,s], digits = 3)
+  swc[,s] = sprintf("%5.3f",swc[,s])
+}
 
+swc$YYDOY = YYDOY(swc$date)
 
+#--- soil temperature
+l_st = l_data[(substr(l_data,1,3)=="TMP")]
+l_st = l_st[nchar(l_st)>3]
+
+st = ag_sdata_daily[,c("date",l_st)]
+
+for(t in l_st){
+  st[is.na(st[,t]) | st[,t] < 0 | st[,t] > 50,t] = NA
+  st[,t] = round(st[,t], digits = 2)
+  st[,t]= sprintf("%5.2f",st[,t])
+}
+
+st$YYDOY = YYDOY(st$date)
+
+write.table(swc, file = paste("SWC_daily.txt",sep="")     , row.names = F, quote = F)
+write.table(st,  file = paste("SoilTemp_daily.txt",sep=""), row.names = F, quote = F)
 
