@@ -11,12 +11,15 @@ crop = "Soybean"
 
 pdate = as.Date("2017-11-23") #seeding date
 
-wd_sd = "C:/Users/PC-600/Dropbox (Farmers Edge)/MuriloVianna/SVS/Primavera_do_leste/Sensor Data/In-Field-Stations/In-Field-Station-Zone#/Sensors Reading Data/WX400244"
+wd_sd = "C:/Users/PC-600/Dropbox (Farmers Edge)/MuriloVianna/SVS/Primavera_do_leste/Sensor Data/Edge-of-Field/Sensors Data/WX400243"
 setwd(wd_sd)
 
 #--- list of sensor data files
 l_sd = dir(wd_sd, pattern = "SD",recursive = T)
 
+hd = read.table(paste(wd_sd,"/",l_sd[1],sep=""), dec = ",", skip = 2, nrows = 1)
+hd = sapply(seq(1:length(hd)), function(x) hd[1,x])
+hd = c("date", "time", as.character(hd))
 
 for(sd in l_sd){
   
@@ -25,7 +28,7 @@ for(sd in l_sd){
                        dec = ",",
                        skip = 3,
                        fill = T,
-                       col.names = c("date","time","VWCA","TMPB","ECBC","VWCD","VWCE","WET","HMD","TMP","RNF","WND","WNG","WNS","DEW"))
+                       col.names = hd)
     
   }else{
     #--- append data to a single df
@@ -33,7 +36,7 @@ for(sd in l_sd){
                        dec = ",",
                        skip = 3,
                        fill = T,
-                       col.names = c("date","time","VWCA","TMPB","ECBC","VWCD","VWCE","WET","HMD","TMP","RNF","WND","WNG","WNS","DEW")))
+                       col.names = hd))
     
   }
 }
