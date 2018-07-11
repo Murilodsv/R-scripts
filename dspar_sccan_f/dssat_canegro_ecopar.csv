@@ -1,0 +1,559 @@
+Par_orig,Par_Rscript,Rep_ID,Par_type,Par_size,Precision,Value,ECO_ID,ECO_name,File,Source
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+dPERdT,dperdt,<p6>,Real,14,4,0.4,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,27.2,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,-20.8,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.0345,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,2.243,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,7.75,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,10,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TBASEPER,tbaseper,<p23>,Real,13,4,10.057,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.076,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,12.2,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,21.8,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,150,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,4.5,SC0007,BRA RB STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+dPERdT,dperdt,<p6>,Real,14,4,0.4,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,27.2,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,-20.8,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.0345,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,2.243,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,7.75,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,10,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TBASEPER,tbaseper,<p23>,Real,13,4,10.057,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.076,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,12.2,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,21.8,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,150,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,4.5,SC0008,BRA CTC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+dPERdT,dperdt,<p6>,Real,14,4,0.4,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,27.2,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,-20.8,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.0345,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,2.243,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,7.75,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,10,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+TBASEPER,tbaseper,<p23>,Real,13,4,10.057,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.076,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,12.2,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,21.8,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,150,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,4.5,SC0009,BRA IAC STD,SCCAN047.eco,http://dx.doi.org/10.1590/S0100-204X2012000300001
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+dPERdT,dperdt,<p6>,Real,14,4,0.4,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,39.7,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,-18.4,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.141,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,5.557,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,3.89,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,14.5,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TBASEPER,tbaseper,<p23>,Real,13,4,10.057,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.285,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,63,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,151,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.9,SC0010,BRA CTC 15 ,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+dPERdT,dperdt,<p6>,Real,14,4,0.4,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,23.1,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,98.2,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.11,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.768,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,7.66,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,12.2,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TBASEPER,tbaseper,<p23>,Real,13,4,10.057,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.195,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,7.7,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,73.5,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.9,SC0011,BRA CTC 17,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+dPERdT,dperdt,<p6>,Real,14,4,0.4,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,33.9,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,-8,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.143,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,5.677,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,3.68,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,12.4,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TBASEPER,tbaseper,<p23>,Real,13,4,10.057,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.37,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,12.9,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,37.2,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,150,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,6,SC0012,BRA RB931011,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+dPERdT,dperdt,<p6>,Real,14,4,0.4,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,24.1,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,21.9,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.0747,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,3.352,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,10.05,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,12.6,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TBASEPER,tbaseper,<p23>,Real,13,4,10.057,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.171,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,6.9,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,68.3,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,138,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,4.8,SC0013,BRA RB966928,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+dPERdT,dperdt,<p6>,Real,14,4,0.4,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,45.7,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,-15.5,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.153,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,6.193,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,7.19,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,12.8,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+TBASEPER,tbaseper,<p23>,Real,13,4,10.057,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.235,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,9.7,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,61.4,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,161,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,7,SC0014,BRA IAC SP5000,SCCAN047.eco,teses.usp.br/teses/disponiveis/11/11152/tde-26092016-145237/en.php
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.7727173,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,17.68427,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0015,BRA CTC11,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.7998086,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,18.54846,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0016,BRA CTC18,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.7329077,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,17.6221,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0017,BRA CTC2,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.7951982,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,17.497,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0018,BRA CTC9,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.763395483,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,17.76117051,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0019,BRA IAC87-3396,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.7460111,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,18.31678,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0020,BRA IAC91-1099,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.5776735,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,17.34603,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0021,BRA IACSP93-3096,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.722336529,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,18.13486619,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0022,BRA IACSP94-2094,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.724826319,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,17.96591124,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0023,BRA IACSP94-2101,SCCAN047.eco,Calibration algorithm (R-Script)
+DELTTMAX,delttmax,<p1>,Real,14,4,0.07,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+SWDF2AMP,swdf2amp,<p2>,Real,14,4,0.5,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNREDUC,cs_cnreduc,<p3>,Real,14,4,0.05,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+CS_CNPERIOD,cs_cnperiod,<p4>,Real,14,4,7,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+Tthalfa,tthalfa,<p5>,Real,14,4,125,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+dPERdT,dperdt,<p6>,Real,14,4,0.795645727,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFN,extcfn,<p7>,Real,14,4,0.84,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+EXTCFST,extcfst,<p8>,Real,14,4,0.84,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+LFNMXEXT,lfnmxext,<p9>,Real,14,4,20,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(1),areamx_cf1,<p10>,Real,13,4,0,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(2),areamx_cf2,<p11>,Real,14,4,31.0125,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+AREAMX_CF(3),areamx_cf3,<p12>,Real,14,4,1.975,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+WIDCOR,widcor,<p13>,Real,14,4,1,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(1),wmax_cf1,<p14>,Real,14,4,-0.09065,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(2),wmax_cf2,<p15>,Real,14,4,4.0345,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+WMAX_CF(3),wmax_cf3,<p16>,Real,14,4,6.965,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(1),popcf1,<p17>,Real,14,4,1.826,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+POPCF(2),popcf2,<p18>,Real,14,4,0,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+POPDECAY,popdecay,<p19>,Real,10,4,0.004,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEEM,ttbaseem,<p20>,Real,15,4,10,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASELFEX,ttbaselfex,<p21>,Real,14,4,11.8125,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+TTBASEPOP,ttbasepop,<p22>,Real,14,4,16,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+TBASEPER,tbaseper,<p23>,Real,13,4,18.22660937,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_AMRANGE,lg_amrange,<p24>,Real,14,4,30,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+LG_GP_REDUC,lg_gp_reduc,<p25>,Real,14,4,0.28,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+LDG_FI_REDUC,ldg_fi_reduc,<p26>,Real,14,4,0.1,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(1),lmax_cf1,<p27>,Real,14,4,-0.1855,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(2),lmax_cf2,<p28>,Real,14,4,10.475,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+LMAX_CF(3),lmax_cf3,<p29>,Real,14,4,46.1,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFLENGTH,maxlflength,<p30>,Real,14,4,149.875,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
+MAXLFWIDTH,maxlfwidth,<p31>,Real,14,4,5.3875,SC0024,BRA SP86-0042,SCCAN047.eco,Calibration algorithm (R-Script)
