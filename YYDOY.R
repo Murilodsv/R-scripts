@@ -9,7 +9,7 @@ YYDOY = function(dat,todssat,millennium){
   #---    millennium: If todssat = f: specify the millenium of data (1000 or 2000), this is a limitation of DSSAT format
   #---------------------------------------------------------#
   
-  if(missing(toddsat)){toddsat=T}
+  if(missing(todssat)){todssat=T}
   
   if(todssat){
     #--- Test data
