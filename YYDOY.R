@@ -13,6 +13,11 @@ YYDOY = function(dat,todssat,millennium){
   
   if(todssat){
     #--- Test data
+    if(typeof(dat) == "character" & nchar(dat[1]) > 7){
+      #--- convert dat to date if not done before
+      dat = as.Date(dat)
+    }
+    #--- dat still not as date stop
     if(typeof(dat) != "double"){stop("Input data is not in Date format (YYYY-MM-DD). Please check dat format.")}
     
     #--- Converts from YYYY-MM-DD to YYDOY format
@@ -27,7 +32,7 @@ YYDOY = function(dat,todssat,millennium){
     if(missing(millennium)){millennium=2000}
     
     #--- Test data
-    if(typeof(dat) != "character"){stop("Input data is not in DSSAT Date format (YYDOY). Please check dat format.")}
+    if(typeof(dat) != "character" | nchar(dat[1]) != 5){stop("Input data is not in DSSAT Date format (YYDOY). Please check dat format.")}
         
     #--- passing data
     doy = as.numeric(substr(dat,3,5))
