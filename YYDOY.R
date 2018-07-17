@@ -2,7 +2,7 @@ YYDOY = function(dat,todssat,millennium){
   #---------------------------------------------------------#
   #--- Function to convert regular dates in DSSAT format ---#
   #---------------------------------------------------------#
-  #--- Murilo Vianna, Jun-2018
+  #--- Murilo Vianna, Jul-2018
   #--- Usage: 
   #---    dat:        The data to be converted (single or vector) in the R Date format YYYY-MM-DD or YYDOY (DSSAT)
   #---    todssat:    A logical. If true the convertion YYYY-MM-DD -> YYDOY will be the output, if false YYDOY -> YYYY-MM-DD
@@ -23,14 +23,19 @@ YYDOY = function(dat,todssat,millennium){
     return (paste0(substr(year,3,4),sprintf("%003.0f",doy)))    
   }else{
     
-    #--- passing data
-    doy = substr(dat,3,5)
-    yr  = substr(dat,1,2)
+    #--- check if millenium is set otherwise default=2000 
+    if(missing(millennium)){millennium=2000}
+    
+    #--- Test data
+    if(typeof(dat) != "character"){stop("Input data is not in DSSAT Date format (YYDOY). Please check dat format.")}
         
-    #--- Re-build DSSAT DATE format (YYDOY)
-    paste0(substr(wth_df$year, 3, 4),sprintf("%003.0f", wth_df$doy))
+    #--- passing data
+    doy = as.numeric(substr(dat,3,5))
+    year= as.numeric(substr(dat,1,2))
     
     
+    #--- Re-build DATE format (YYYY-MM-DD)
+    return(as.Date(paste0(millennium+year,"-01-01")) + (doy - 1)) 
     
   }
 }
