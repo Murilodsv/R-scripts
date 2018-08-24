@@ -11,10 +11,26 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
   # vnam    - Name of variable          [String]
   # dchart  - Display Chart?            [T or F]
   # outidx  - Output peformance indexes [List]
+  # 
+  # Murilo Vianna
+  # source: https://github.com/Murilodsv/R-scripts/blob/master/mperf.r
   #
-  # Murilo Vianna - Jun 2018
+  # Literature: 
+  # Brun, F., Wallach, D., Makowski, D., & Jones, J. W. (2006). 
+  # Working with dynamic crop models: evaluation, analysis, 
+  # parameterization, and applications. Elsevier.
   #--------------------------------------------------#
-
+  
+  if(missing(sim)){stop("Missing sim argument")}
+  if(missing(obs)){stop("Missing obs argument")}
+  if(missing(dchart)){dchart = T}
+  if(missing(outidx)){outidx = c("bias","mse","rmse","mae","rrmse","rmae","ef","r","r2","d")}
+  if(missing(vnam)){
+    warning("Missing vnam argument: vnam set to none.")
+    vnam = ""
+  }
+  
+  
   #--- Check Input data
   sim = as.numeric(sim)
   obs = as.numeric(obs)
@@ -76,7 +92,7 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
           lwd = 1.5)
   }
   
-  
+  if(outidx[1] == "all"){outidx = c("bias","mse","rmse","mae","rrmse","rmae","ef","r","r2","d")}
   perf = data.frame(model = vnam,
                     bias,
                     mse,
