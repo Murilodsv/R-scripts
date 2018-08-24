@@ -120,3 +120,8 @@ performance = mperf(sim,obs,"Example",T,c("rmse","bias","r2"))
 
 performance
 
+#--- Compute performance for "Example" using all index outputs, 
+performance = mperf(sim,obs,"Example",T,"all")
+
+performance
+
