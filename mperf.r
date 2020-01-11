@@ -1,3 +1,5 @@
+# Model Performance -------------------------------------------------------
+
 mperf     = function(sim,obs,vnam,dchart,outidx){
   
   #--------------------------------------------------#
@@ -24,12 +26,14 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
   if(missing(sim)){stop("Missing sim argument")}
   if(missing(obs)){stop("Missing obs argument")}
   if(missing(dchart)){dchart = T}
-  if(missing(outidx)){outidx = c("bias","mse","rmse","mae","rrmse","rmae","ef","r","r2","d")}
+  if(missing(outidx)){outidx = c("bias","mse","rmse","mae","rrmse","rmae","ef","r","r2","d","cc","a","b","mi.sim","sd.sim","cv.sim","mi.obs","sd.obs","cv.obs","n")}
   if(missing(vnam)){
     warning("Missing vnam argument: vnam set to none.")
     vnam = ""
   }
   
+  #--- all outputs
+  if(outidx[1] == "all"){outidx = c("bias","mse","rmse","mae","rrmse","rmae","ef","r","r2","d","cc","a","b","mi.sim","sd.sim","cv.sim","mi.obs","sd.obs","cv.obs","n")}
   
   #--- Check Input data
   sim = as.numeric(sim)
@@ -46,11 +50,14 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
   }
   
   #--- Statistical indexes
+  n     = length(obs)
+  mi.sim= mean(sim)
+  mi.obs= mean(obs)
   fit   = lm(sim~obs)
-  bias  = (1/length(obs)) * sum(sim-obs)
-  mse   = (1/length(obs)) * sum((sim-obs)^2)
+  bias  = (1/n) * sum(sim-obs)
+  mse   = (1/n) * sum((sim-obs)^2)
   rmse  = sqrt(mse)
-  mae   = (1/length(obs)) * sum(abs(sim-obs))
+  mae   = (1/n) * sum(abs(sim-obs))
   rrmse = rmse / mean(obs)
   rmae  = (1/length(obs[obs>0])) * sum(abs(sim[obs>0]-obs[obs>0])/abs(obs[obs>0]))
   ef    = 1 - (sum((sim-obs)^2) / sum((obs-mean(obs))^2))
@@ -58,9 +65,26 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
   r2    = r^2
   d     = 1 - (sum((sim-obs)^2) / sum((abs(sim-mean(obs))+abs(obs-mean(obs)))^2))
   if(length(unique(sim)) > 1){
-    a     = summary(fit)$coefficients["(Intercept)","Estimate"]
-    b     = summary(fit)$coefficients["obs","Estimate"]
+    a     = fit$coefficients[1]
+    b     = fit$coefficients[2]
+    if(any(is.na(c(a,b)))){
+      outidx = outidx[outidx != "a" & outidx != "b"]
+    }
+  }else{
+    outidx = outidx[outidx != "a" & outidx != "b"]
+    a = NA
+    b = NA
   }
+  
+  sigma.obs.sim = (1 / n) * sum((obs - mi.obs) * (sim - mi.sim))
+  sigma.obs.2   = (1 / n) * sum((obs - mi.obs) ^ 2)
+  sigma.sim.2   = (1 / n) * sum((sim - mi.sim) ^ 2)
+  cc    = (2 * sigma.obs.sim) / (sigma.obs.2 + sigma.sim.2 + (mi.sim - mi.obs)^2)
+  
+  sd.obs = sd(obs)
+  sd.sim = sd(sim)
+  cv.obs = sd.obs / mi.obs
+  cv.sim = sd.sim / mi.sim
   
   if(dchart){
     #--- Chart Sim ~ Obs
@@ -71,7 +95,7 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
     #--- Ploting limits 
     pllim = c(mindt-0.1*(maxdt-mindt),maxdt+0.1*(maxdt-mindt))
     xx = seq(min(obs),max(obs),length = (max(obs)-min(obs))*1000)
-    #z = summary(fit)
+    z = summary(fit)
     
     plot(sim~obs,
          ylab = paste("Sim - ",varlab,sep = ""),
@@ -92,7 +116,6 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
           lwd = 1.5)
   }
   
-  if(outidx[1] == "all"){outidx = c("bias","mse","rmse","mae","rrmse","rmae","ef","r","r2","d")}
   perf = data.frame(model = vnam,
                     bias,
                     mse,
@@ -103,7 +126,19 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
                     ef,
                     r,
                     r2,
-                    d)
+                    d,
+                    cc,
+                    a,
+                    b,
+                    mi.sim,
+                    sd.sim,
+                    cv.sim,
+                    mi.obs,
+                    sd.obs,
+                    cv.obs,
+                    n)
+  
+  rownames(perf) = c()
   
   return(perf[,c("model",outidx)])
   
