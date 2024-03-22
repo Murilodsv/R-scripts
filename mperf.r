@@ -144,19 +144,19 @@ mperf     = function(sim,obs,vnam,dchart,outidx){
   
 }
 
-#--- Usage Example:
+#--- Usage Example (just uncomment):
 
 #--- For a the given observed and simulated values
-obs = rnorm(1000,100,50)
-sim = obs * rnorm(1000,1,0.2)
+#obs = rnorm(1000,100,50)
+#sim = obs * rnorm(1000,1,0.2)
 
 #--- Compute performance for "Example" ("rmse" "bias" and "r2"), plot chart = T, 
-performance = mperf(sim,obs,"Example",T,c("rmse","bias","r2"))
+#performance = mperf(sim,obs,"Example",T,c("rmse","bias","r2"))
 
-performance
+#performance
 
 #--- Compute performance for "Example" using all index outputs, 
-performance = mperf(sim,obs,"Example",T,"all")
+#performance = mperf(sim,obs,"Example",T,"all")
 
-performance
+#performance
 
